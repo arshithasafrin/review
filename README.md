@@ -1,6 +1,6 @@
 # Restrosights
 
-Live preview (no login): https://rawcdn.githack.com/arshithasafrin/review/54974fe24df15d588931ed29c18ad451653135f8/index.html
+Live preview (no login): https://rawcdn.githack.com/arshithasafrin/review/ce762f48b49c8840505d6bb2d68156da74bacdce/index.html
 
 The first visit shows a one-step notice from the host. Choose **Open the page**. The site itself then loads with no account.
 
