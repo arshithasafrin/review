@@ -1,5 +1,11 @@
 # Restrosights
 
+Live preview (no login): https://rawcdn.githack.com/arshithasafrin/review/54974fe24df15d588931ed29c18ad451653135f8/index.html
+
+The first visit shows a one-step notice from the host. Choose **Open the page**. The site itself then loads with no account.
+
+GitHub Pages at https://arshithasafrin.github.io/review/ is not on yet. The Actions workflow builds, then deploy fails with “Ensure GitHub Pages has been enabled” because this repository’s Pages setting is still off. Turning on Pages (Settings → Pages → Source: GitHub Actions) lets the next run publish that URL. The credentials on this run cannot change that setting.
+
 Marketing site for Restrosights, a restaurant reputation and guest-feedback system. One static page: genuine Google review growth, private capture of lower-rated feedback, and a monthly read of what diners are saying.
 
 The visual language follows the soft lavender-to-indigo silk gradient the client chose, with white cards floating on it. Copy follows the sales-page brief. The product name is Restrosights throughout.
