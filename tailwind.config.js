@@ -13,8 +13,8 @@ export default {
         warn: "#8A5A00",
       },
       boxShadow: {
-        card: "0 18px 50px -24px rgba(62, 48, 140, 0.32), 0 2px 8px rgba(62, 48, 140, 0.05)",
-        float: "0 32px 70px -28px rgba(55, 40, 130, 0.42), 0 8px 24px -16px rgba(55, 40, 130, 0.2)",
+        card: "0 1px 1px rgba(16, 18, 40, 0.04), 0 14px 36px -18px rgba(16, 18, 40, 0.16)",
+        float: "0 1px 2px rgba(16, 18, 40, 0.04), 0 24px 50px -24px rgba(16, 18, 40, 0.2)",
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', "Inter", "ui-sans-serif", "system-ui", "sans-serif"],

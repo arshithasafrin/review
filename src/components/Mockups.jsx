@@ -120,9 +120,7 @@ export function PhoneMock() {
               ))}
             </div>
             <div className="mt-3 rounded-2xl bg-white px-3 py-3 text-sm text-mute shadow-card">The biryani and the calm service.</div>
-            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-gradient-to-br from-[#f7f3ff] via-[#d9ccff] to-[#b7a6ff] text-sm font-bold text-navy">
-              Continue
-            </div>
+            <div className="btn btn-primary mt-4 w-full">Continue</div>
             <p className="mt-3 text-center text-[11px] leading-snug text-mute">Preview only. Guests do this in the browser. Nothing here is sent.</p>
           </div>
         </div>
@@ -221,12 +219,11 @@ const ATTENTION = ["Waiting time", "Parking", "Weekend service", "Order delay", 
 
 export function ReportMock() {
   return (
-    <article className="overflow-hidden rounded-[28px] bg-white shadow-float">
-      <div className="h-2 bg-gradient-to-r from-[#f4ebff] via-[#8d82f3] to-[#3d3494]" />
+    <article className="card card-still overflow-hidden">
       <div className="p-5 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5346c8]">Monthly guest report</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6d7388]">Monthly guest report</p>
             <h3 className="mt-1 text-2xl font-extrabold tracking-tight text-navy">March · Sample Bistro</h3>
           </div>
           <SampleBadge />

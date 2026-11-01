@@ -30,14 +30,14 @@ export function Nav() {
   }
 
   return (
-    <header className={`sticky top-0 z-30 ${scrolled || menu ? "border-b border-[#ece8f6] bg-white/90 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
+    <header className={`sticky top-0 z-30 transition-colors ${scrolled || menu ? "border-b border-[rgba(11,22,64,0.06)] bg-white/80 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-3">
         <a href="#top" className="rounded-xl" aria-label="Restrosights home">
           <Logo size={34} />
         </a>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {LINKS.map(([label, href]) => (
-            <a key={href} href={href} className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-ink">
+            <a key={href} href={href} className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-medium text-[#4a5168] transition-colors hover:text-navy">
               {label}
             </a>
           ))}
