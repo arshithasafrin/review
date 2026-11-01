@@ -52,18 +52,32 @@ body {
 }
 
 .silk-fade-bottom {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 140px), transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 140px), transparent 100%);
+  bottom: -140px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 280px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 280px), transparent 100%);
 }
 
 .silk-fade-top {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 100%);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 100%);
+  top: -140px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 280px, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 280px, #000 100%);
 }
 
 .silk-fade-both {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+  top: -140px;
+  bottom: -140px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 280px, #000 calc(100% - 280px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 280px, #000 calc(100% - 280px), transparent 100%);
+}
+
+.silk-fade-panel {
+  inset: -16px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
+}
+
+.section-mist {
+  background-image: linear-gradient(to bottom, #ffffff 0, #f7f6fc 140px, #f7f6fc calc(100% - 140px), #ffffff 100%);
 }
 
 .silk-fade-bridge {

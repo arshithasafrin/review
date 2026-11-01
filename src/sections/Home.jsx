@@ -161,7 +161,7 @@ function Glow({ children, className = "" }) {
 export function Hero() {
   const { openDemo } = useLead()
   return (
-    <section id="top" className="relative -mt-[4.5rem] overflow-hidden pb-16 pt-[5.75rem] sm:pb-24 sm:pt-[6.5rem]">
+    <section id="top" className="relative -mt-[4.5rem] pb-16 pt-[5.75rem] sm:pb-24 sm:pt-[6.5rem]">
       <Silk edges="bottom" />
       <div className="wrap relative z-10">
         <Glow className="mx-auto max-w-4xl text-center">
@@ -226,7 +226,7 @@ export function Hero() {
 
 export function Pain() {
   return (
-    <section id="pain" className="bg-white py-20 sm:py-28">
+    <section id="pain" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="The gap" title="Great Food Does Not Automatically Create Great Reviews.">
           A full dining room can still leave you with a thin Google profile, a surprise 1-star review, and no clear picture of why.
@@ -250,7 +250,7 @@ export function Pain() {
 
 export function How() {
   return (
-    <section id="how-it-works" className="scroll-mt-24 bg-white pb-20 sm:pb-28">
+    <section id="how-it-works" className="relative scroll-mt-24 pb-20 sm:pb-28">
       <div className="wrap">
         <SectionHeading eyebrow="How it works" title="From the table to a clearer picture of your guests.">
           Five quiet steps. Guests stay in the browser. You see what they meant.
@@ -267,8 +267,8 @@ export function How() {
             </li>
           ))}
         </ol>
-        <div className="relative mt-8 overflow-hidden rounded-[32px] px-4 py-8 sm:px-8">
-          <Silk />
+        <div className="relative mt-8 rounded-[32px] px-4 py-8 sm:px-8">
+          <Silk edges="panel" />
           <ol className="relative z-10 flex flex-wrap items-center justify-center gap-2">
             {FLOW.map((item, index) => (
               <li key={item} className="flex items-center gap-2">
@@ -322,7 +322,7 @@ export function DashboardSection() {
 
 export function Seo() {
   return (
-    <section id="reviews-seo" className="bg-white py-20 sm:py-28">
+    <section id="reviews-seo" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="Reviews and local SEO" title="Reviews That Build Trust — And Support Local SEO.">
           Build a steady flow of genuine customer reviews that can strengthen your restaurant&apos;s Google presence, local relevance and customer trust over time.
@@ -358,7 +358,7 @@ export function Seo() {
 
 export function Filtration() {
   return (
-    <section id="filtration" className="bg-mist py-20 sm:py-28">
+    <section id="filtration" className="section-mist relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="Negative feedback filtration" title="Don't Discover Customer Problems From A 1-Star Review.">
           Restrosights helps restaurants capture lower-rated guest feedback privately, so management can understand and address the issue earlier. Catch lower-rated guest feedback earlier.
@@ -391,7 +391,7 @@ export function Filtration() {
 
 export function Insights() {
   return (
-    <section id="insights" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="insights" className="relative py-20 sm:py-28">
       <Silk edges="both" />
       <div className="wrap relative z-10">
         <Glow>
@@ -409,7 +409,7 @@ export function Insights() {
 
 export function Reputation() {
   return (
-    <section id="reputation" className="bg-white py-20 sm:py-28">
+    <section id="reputation" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="Reputation support" title="Help when a profile or a review needs a careful response.">
           Google Business Profile issues and reviews that look fake or spammy are part of the system. So is a clear line about what nobody honest can promise.
@@ -446,7 +446,7 @@ export function Brand() {
     setFilm(name)
   }
   return (
-    <section id="brand" className="bg-white py-20 sm:py-28">
+    <section id="brand" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="Brand services" title="An Instagram bio that is easy to trust. Two films about the restaurant.">
           Growth includes Instagram bio optimisation, a Brand Story video and a Location Highlight video. The frames below show the shape of the work. They are not client results.
@@ -474,8 +474,8 @@ export function Brand() {
               ["Location Highlight", "The room, the neighbourhood, the reason to visit."],
             ].map(([title, copy]) => (
               <article key={title} className="flex flex-col rounded-[24px] border border-line p-5">
-                <div className="relative grid h-36 place-items-center overflow-hidden rounded-2xl">
-                  <Silk />
+                <div className="relative grid h-36 place-items-center rounded-2xl">
+                  <Silk edges="panel" />
                   <button type="button" className="relative z-10 grid h-14 w-14 place-items-center rounded-full bg-white text-lg font-extrabold text-navy shadow-card" onClick={() => openFilm(title)} aria-label={`About the ${title} video`}>
                     ▶
                   </button>
@@ -503,7 +503,7 @@ export function Brand() {
 
 export function Multi() {
   return (
-    <section id="multi-location" className="bg-mist py-20 sm:py-28">
+    <section id="multi-location" className="section-mist relative py-20 sm:py-28">
       <div className="wrap grid items-center gap-10 lg:grid-cols-2">
         <SectionHeading eyebrow="Multi-location" title="Know which restaurant location needs attention.">
           Each outlet has its own QR and review flow. You still get one central view: outlet-level feedback, a comparison, and a group read of the guest experience.
@@ -537,7 +537,7 @@ export function Multi() {
 
 export function Value() {
   return (
-    <section id="value" className="bg-white py-20 sm:py-28">
+    <section id="value" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading eyebrow="The offer" title="One Restaurant Reputation System Instead Of Five Different Services.">
           Most restaurants assemble this from separate vendors. Restrosights packages the work as one system.
@@ -578,7 +578,7 @@ export function Pricing() {
   const ref = useRef(null)
   useOnceInView(ref, EVENTS.PRICING_VIEW, { section: "pricing" })
   return (
-    <section id="pricing" ref={ref} className="scroll-mt-24 bg-white py-20 sm:py-28">
+    <section id="pricing" ref={ref} className="relative scroll-mt-24 py-20 sm:py-28">
       <div className="wrap">
         <SectionHeading center eyebrow="Pricing" title="Three ways to start. One system, not five invoices.">
           ₹4,999 is the cost of the reputation system for a restaurant that wants the full monthly practice. It is not a software seat stacked on top of a consultant, an editor and a reporting tool.
@@ -617,7 +617,7 @@ export function Pricing() {
 
 export function Proof() {
   return (
-    <section id="proof" className="bg-white pb-20 sm:pb-28">
+    <section id="proof" className="relative pb-20 sm:pb-28">
       <div className="wrap">
         <SectionHeading eyebrow="Proof" title="Shown when a restaurant has agreed to share it.">
           We will not invent testimonials, logos, review counts or before-and-after results. These spaces stay empty until the material is real.
@@ -656,7 +656,7 @@ export function Faq() {
     })
   }
   return (
-    <section id="faq" className="scroll-mt-24 bg-white py-20 sm:py-28">
+    <section id="faq" className="relative scroll-mt-24 py-20 sm:py-28">
       <div className="wrap max-w-3xl">
         <SectionHeading eyebrow="FAQ" title="Frequently asked questions">
           Straight answers on the app, rankings, reviews and what Restrosights will not promise.
@@ -694,7 +694,7 @@ export function Faq() {
 export function FinalCta() {
   const { openDemo } = useLead()
   return (
-    <section id="book" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="book" className="relative py-20 sm:py-28">
       <Silk edges="both" />
       <div className="wrap relative z-10">
         <Glow className="mx-auto max-w-3xl text-center">

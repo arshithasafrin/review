@@ -4,7 +4,7 @@ import { WhatsAppLink } from "./WhatsAppLink"
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-white pb-28 md:pb-12">
+    <footer className="relative pb-28 md:pb-12">
       <div className="wrap grid gap-8 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo size={36} />
