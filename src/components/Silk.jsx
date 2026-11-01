@@ -1,8 +1,8 @@
 import grainUrl from "../assets/grain.png"
 
-export function Silk() {
+export function Silk({ edges = "solid" }) {
   return (
-    <div className="silk" aria-hidden="true">
+    <div className={edges === "solid" ? "silk" : `silk silk-fade-${edges}`} aria-hidden="true">
       <div className="silk-base" />
       <div className="fold f1" />
       <div className="fold f2" />

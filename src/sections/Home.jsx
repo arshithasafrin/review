@@ -162,7 +162,7 @@ export function Hero() {
   const { openDemo } = useLead()
   return (
     <section id="top" className="relative -mt-[4.5rem] overflow-hidden pb-16 pt-[5.75rem] sm:pb-24 sm:pt-[6.5rem]">
-      <Silk />
+      <Silk edges="bottom" />
       <div className="wrap relative z-10">
         <Glow className="mx-auto max-w-4xl text-center">
           <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#5346c8]">Restaurant reputation system</p>
@@ -285,8 +285,7 @@ export function How() {
 
 export function Stand() {
   return (
-    <section id="review-stand" className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28">
-      <Silk />
+    <section id="review-stand" className="relative scroll-mt-24 py-20 sm:py-28">
       <div className="wrap relative z-10 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="rounded-[28px] bg-white p-6 shadow-float sm:p-8">
           <SectionHeading eyebrow="Review Stand" title="A prompt where guests already pause.">
@@ -306,8 +305,7 @@ export function Stand() {
 
 export function DashboardSection() {
   return (
-    <section id="dashboard" className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28">
-      <Silk />
+    <section id="dashboard" className="relative scroll-mt-24 py-20 sm:py-28">
       <div className="wrap relative z-10">
         <Glow>
           <SectionHeading eyebrow="The app" title="Your restaurant reputation in your pocket.">
@@ -394,7 +392,7 @@ export function Filtration() {
 export function Insights() {
   return (
     <section id="insights" className="relative overflow-hidden py-20 sm:py-28">
-      <Silk />
+      <Silk edges="both" />
       <div className="wrap relative z-10">
         <Glow>
           <SectionHeading eyebrow="Monthly intelligence" title="Don't Just Collect Reviews. Understand Your Diners.">
@@ -697,7 +695,7 @@ export function FinalCta() {
   const { openDemo } = useLead()
   return (
     <section id="book" className="relative overflow-hidden py-20 sm:py-28">
-      <Silk />
+      <Silk edges="both" />
       <div className="wrap relative z-10">
         <Glow className="mx-auto max-w-3xl text-center">
           <h2 className="text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.035em] text-navy sm:text-4xl lg:text-5xl">
