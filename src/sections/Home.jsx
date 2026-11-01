@@ -268,8 +268,8 @@ export function How() {
             </li>
           ))}
         </ol>
-        <div className="relative mt-8 rounded-[32px] px-4 py-8 sm:px-8">
-          <Silk edges="panel" />
+        <div className="journey-strip relative mt-8 overflow-hidden rounded-[32px] px-4 py-8 sm:px-8">
+          <Silk />
           <ol className="relative z-10 flex flex-wrap items-center justify-center gap-2">
             {FLOW.map((item, index) => (
               <li key={item} className="flex items-center gap-2">
