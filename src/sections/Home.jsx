@@ -418,13 +418,13 @@ export function Reputation() {
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           <article className="reputation-card">
             <IconTile name="store" />
-            <h3 className="mt-4 text-xl font-extrabold text-white">Google Business Profile support</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/90">Guidance on suspension, reinstatement and verification. The work is professional support, not a switch that turns a profile back on.</p>
+            <h3 className="mt-4 text-xl font-extrabold text-navy">Google Business Profile support</h3>
+            <p className="mt-2 text-sm leading-relaxed text-ink">Guidance on suspension, reinstatement and verification. The work is professional support, not a switch that turns a profile back on.</p>
           </article>
           <article className="reputation-card">
             <IconTile name="shield" />
-            <h3 className="mt-4 text-xl font-extrabold text-white">Fake review assistance</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/90">When a review appears fake, spammy or potentially in violation of Google&apos;s policies, the team can help you report it the right way.</p>
+            <h3 className="mt-4 text-xl font-extrabold text-navy">Fake review assistance</h3>
+            <p className="mt-2 text-sm leading-relaxed text-ink">When a review appears fake, spammy or potentially in violation of Google&apos;s policies, the team can help you report it the right way.</p>
           </article>
         </div>
         <div className="mt-4 rounded-[24px] bg-[#fff8ec] p-6">
@@ -588,18 +588,18 @@ export function Pricing() {
           {PLANS.map((plan) => (
             <article key={plan.id} className={`flex flex-col rounded-[28px] p-6 ${plan.featured ? "growth-card lg:-mt-3 lg:mb-3" : "border border-line bg-white"}`}>
               <div className="flex items-center justify-between gap-2">
-                <h3 className={`text-lg font-extrabold ${plan.featured ? "text-white" : "text-navy"}`}>{plan.name}</h3>
-                {plan.featured ? <span className="rounded-full bg-white px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Most popular</span> : null}
+                <h3 className="text-lg font-extrabold text-navy">{plan.name}</h3>
+                {plan.featured ? <span className="rounded-full bg-navy px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white">Most popular</span> : null}
               </div>
-              <p className={`mt-4 text-4xl font-extrabold tracking-tight ${plan.featured ? "text-white" : "text-navy"}`}>
-                {plan.price} <span className={`text-base font-semibold ${plan.featured ? "text-white/75" : "text-mute"}`}>{plan.cadence}</span>
+              <p className="mt-4 text-4xl font-extrabold tracking-tight text-navy">
+                {plan.price} <span className="text-base font-semibold text-mute">{plan.cadence}</span>
               </p>
-              <p className={`mt-3 text-sm leading-relaxed ${plan.featured ? "text-white/90" : "text-ink"}`}>{plan.who}</p>
-              {plan.note ? <p className={`mt-3 text-sm font-semibold leading-relaxed ${plan.featured ? "text-white" : "text-navy"}`}>{plan.note}</p> : null}
+              <p className="mt-3 text-sm leading-relaxed text-ink">{plan.who}</p>
+              {plan.note ? <p className="mt-3 text-sm font-semibold leading-relaxed text-navy">{plan.note}</p> : null}
               <ul className="mt-5 flex-1 space-y-2.5">
                 {plan.features.map((feature) => (
-                  <li key={feature} className={`flex items-start gap-2 text-sm font-semibold ${plan.featured ? "text-white" : "text-navy"}`}>
-                    <span className={`mt-0.5 ${plan.featured ? "text-white" : "text-[#5346c8]"}`} aria-hidden="true">✓</span>
+                  <li key={feature} className="flex items-start gap-2 text-sm font-semibold text-navy">
+                    <span className="mt-0.5 text-[#5346c8]" aria-hidden="true">✓</span>
                     {feature}
                   </li>
                 ))}
