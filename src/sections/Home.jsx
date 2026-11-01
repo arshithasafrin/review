@@ -415,15 +415,15 @@ export function Reputation() {
           Google Business Profile issues and reviews that look fake or spammy are part of the system. So is a clear line about what nobody honest can promise.
         </SectionHeading>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <article className="rounded-[24px] border border-line p-6">
+          <article className="reputation-card">
             <IconTile name="store" />
-            <h3 className="mt-4 text-xl font-extrabold text-navy">Google Business Profile support</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink">Guidance on suspension, reinstatement and verification. The work is professional support, not a switch that turns a profile back on.</p>
+            <h3 className="mt-4 text-xl font-extrabold text-white">Google Business Profile support</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/90">Guidance on suspension, reinstatement and verification. The work is professional support, not a switch that turns a profile back on.</p>
           </article>
-          <article className="rounded-[24px] border border-line p-6">
+          <article className="reputation-card">
             <IconTile name="shield" />
-            <h3 className="mt-4 text-xl font-extrabold text-navy">Fake review assistance</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink">When a review appears fake, spammy or potentially in violation of Google&apos;s policies, the team can help you report it the right way.</p>
+            <h3 className="mt-4 text-xl font-extrabold text-white">Fake review assistance</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/90">When a review appears fake, spammy or potentially in violation of Google&apos;s policies, the team can help you report it the right way.</p>
           </article>
         </div>
         <div className="mt-4 rounded-[24px] bg-[#fff8ec] p-6">
