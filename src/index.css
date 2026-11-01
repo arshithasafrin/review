@@ -80,6 +80,18 @@ body {
   background-image: linear-gradient(to bottom, #ffffff 0, #f7f6fc 140px, #f7f6fc calc(100% - 140px), #ffffff 100%);
 }
 
+.mockup-glow {
+  position: absolute;
+  z-index: -1;
+  inset: -16% -10% -18%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 34% at 34% 42%, rgba(232, 226, 255, 0.95) 0%, rgba(232, 226, 255, 0) 68%),
+    radial-gradient(ellipse 36% 40% at 68% 58%, rgba(150, 138, 236, 0.72) 0%, rgba(150, 138, 236, 0) 70%),
+    radial-gradient(ellipse 52% 48% at 50% 50%, #d5ceff 0%, rgba(213, 206, 255, 0.72) 34%, rgba(213, 206, 255, 0) 70%);
+  filter: blur(26px);
+}
+
 .reputation-card {
   position: relative;
   overflow: hidden;

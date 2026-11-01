@@ -188,6 +188,7 @@ export function Hero() {
         </Glow>
 
         <div className="relative z-10 mx-auto mt-12 grid max-w-5xl items-center gap-4 lg:mt-16 lg:grid-cols-[260px_300px_280px] lg:justify-center lg:gap-5">
+          <div className="mockup-glow" aria-hidden="true" />
           <div className="order-2 grid gap-4 lg:order-1">
             <div className="rise">
               <ReviewStand />
