@@ -103,7 +103,7 @@ export function LeadForm({ idPrefix = "lead", plan = "", source = "inline", head
   }
 
   return (
-    <form id={idPrefix} onSubmit={onSubmit} noValidate className="card p-5 sm:p-7">
+    <form id={idPrefix} onSubmit={onSubmit} noValidate className="rounded-[28px] bg-white p-5 shadow-float sm:p-7">
       {heading ? (
         <div className="mb-5">
           <h3 className="text-xl font-extrabold tracking-tight text-navy sm:text-2xl">See How Restrosights Would Work For Your Restaurant.</h3>
