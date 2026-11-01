@@ -70,6 +70,19 @@ body {
   mask-image: linear-gradient(to bottom, transparent 0, #000 280px, #000 calc(100% - 280px), transparent 100%);
 }
 
+.silk-fade-long {
+  top: -260px;
+  bottom: -260px;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.22) 180px, #000 520px, #000 calc(100% - 520px), rgba(0, 0, 0, 0.22) calc(100% - 180px), transparent 100%),
+    linear-gradient(to right, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.22) 180px, #000 520px, #000 calc(100% - 520px), rgba(0, 0, 0, 0.22) calc(100% - 180px), transparent 100%),
+    linear-gradient(to right, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
+  mask-composite: intersect;
+}
+
 .silk-fade-panel {
   inset: -16px;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);

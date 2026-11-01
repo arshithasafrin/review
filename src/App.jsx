@@ -38,7 +38,7 @@ export default function App() {
           <Pain />
           <How />
           <div className="relative">
-            <Silk edges="both" />
+            <Silk edges="long" />
             <Stand />
             <DashboardSection />
           </div>
