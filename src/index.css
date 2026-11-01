@@ -117,6 +117,25 @@ body {
   filter: blur(26px);
 }
 
+.growth-card {
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 32%),
+    radial-gradient(ellipse 90% 70% at 0% 0%, rgba(214, 204, 255, 0.7), transparent 48%),
+    radial-gradient(ellipse 80% 80% at 100% 120%, rgba(49, 42, 138, 0.55), transparent 52%),
+    linear-gradient(155deg, #6a62dc 0%, #544cc4 46%, #3e3696 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    0 18px 40px -22px rgba(48, 38, 120, 0.45);
+}
+
+.growth-card .btn {
+  color: #0b1640;
+  background: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 18px -12px rgba(16, 12, 48, 0.45);
+}
+
 .reputation-card {
   position: relative;
   overflow: hidden;
