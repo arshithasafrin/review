@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Silk } from "../components/Silk"
+import { SilkFill } from "../wedge/SilkFill"
 import { useLead } from "../components/LeadForm"
 import { useTitle } from "../wedge/Shell"
 
@@ -15,11 +15,8 @@ export default function Login() {
   }
 
   return (
-    <div className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden">
-      <div className="silk-full absolute inset-0">
-        <Silk edges="solid" />
-      </div>
-      <div className="relative grid min-h-[calc(100vh-72px)] place-items-center px-4 py-16">
+    <SilkFill fade="login" className="grid min-h-[calc(100vh-72px)] place-items-center px-4 py-16">
+      <div className="w-full max-w-md">
         <form onSubmit={onSubmit} className="w-full max-w-md rounded-[28px] bg-white p-8 shadow-float">
           <h1 className="text-center text-2xl font-semibold tracking-tight">Login to your account</h1>
           <label className="mt-6 block text-sm font-medium" htmlFor="login-name">
@@ -51,6 +48,6 @@ export default function Login() {
           )}
         </form>
       </div>
-    </div>
+    </SilkFill>
   )
 }

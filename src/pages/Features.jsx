@@ -1,6 +1,6 @@
 import { SampleBadge } from "../components/ui"
-import { DashboardMock, ReportMock, ReviewStand } from "../components/Mockups"
 import { CtaBand, FaqBlock, PageIntro, TrustRow, useTitle } from "../wedge/Shell"
+import { SilkFill } from "../wedge/SilkFill"
 
 export default function Features() {
   useTitle("Features · Restrosights")
@@ -9,7 +9,7 @@ export default function Features() {
       <PageIntro title="The guest loop, without a pile of tools">
         Restaurants already have enough systems. Restrosights covers the stand, the private note, the Google review prompt, and the monthly read.
       </PageIntro>
-      <div className="flex justify-center pb-4">
+      <div className="flex justify-center bg-[#f6f5ff] pb-16">
         <a href="#stand" className="btn btn-primary">
           See the stand <span aria-hidden="true">→</span>
         </a>
@@ -20,27 +20,37 @@ export default function Features() {
         kicker="Easy for the floor"
         title="Take the awkward ask off the team"
         body="Staff should not have to chase a review at the table. The stand does the asking at the counter, with a QR code and one short line of copy."
-        visual={<ReviewStand className="mx-auto max-w-sm" />}
+        visual={
+        <Panel>
+          <p className="display text-lg">At the counter</p>
+          <p className="mt-2 text-sm leading-6 text-[#455366]">A QR prompt. A rating from 1 to 5. No reward for posting.</p>
+        </Panel>
+      }
       />
       <Band
         flip
         kicker="Ready as you add outlets"
         title="The same loop at every location"
         body="A second or a fifteenth restaurant gets its own stand and its own link. Feedback stays attached to the outlet it came from."
-        visual={<DashboardMock />}
+        visual={
+        <Panel>
+          <SampleBadge />
+          <p className="display mt-3 text-lg">Per outlet</p>
+          <p className="mt-2 text-sm leading-6 text-[#455366]">Each location keeps its own stand, link, and monthly read.</p>
+        </Panel>
+      }
       />
       <Band
         kicker="One view for the owner"
         title="Praise, complaints, and what to fix"
         body="The monthly report is a short read for the team meeting. It does not promise a Google ranking, and the figures in this preview are sample data."
         visual={
-          <div>
-            <div className="mb-3">
-              <SampleBadge />
-            </div>
-            <ReportMock />
-          </div>
-        }
+        <Panel>
+          <SampleBadge />
+          <p className="display mt-3 text-lg">Monthly read</p>
+          <p className="mt-2 text-sm leading-6 text-[#455366]">Praise, complaints, and what to fix. No ranking promise.</p>
+        </Panel>
+      }
       />
       <Band
         flip
@@ -48,7 +58,7 @@ export default function Features() {
         title="Private feedback stays private"
         body="A low rating opens a note to the restaurant. Restrosights does not delete public reviews, and it does not pay anyone to post one."
         visual={
-          <ul className="wedge-card divide-y divide-[#f0eef6] p-2">
+          <ul className="divide-y divide-[#ebebeb] rounded-[20px] bg-[#f7f7f7] p-2">
             {[
               ["1–3 stars", "A private note to the team"],
               ["4–5 stars", "A path to a genuine Google review"],
@@ -71,15 +81,23 @@ export default function Features() {
 
 function Band({ id, kicker, title, body, visual, flip = false }) {
   return (
-    <section id={id} className="mx-auto w-[min(1160px,calc(100%-2rem))] py-6">
-      <div className="grid items-center gap-8 rounded-[28px] bg-white p-6 shadow-card lg:grid-cols-2 lg:gap-14 lg:p-12">
-        <div className={flip ? "lg:order-2" : ""}>{visual}</div>
-        <div>
-          <p className="text-sm font-medium text-[#8b90a3]">{kicker}</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-[2.6rem] sm:leading-[1.1]">{title}</h2>
-          <p className="mt-4 leading-relaxed text-[#5c6478]">{body}</p>
+    <section id={id} className="bg-white">
+      <div className="mx-auto grid w-[min(1280px,calc(100%-2rem))] items-center gap-12 px-2 py-16 lg:grid-cols-2 lg:py-24">
+        <div className={flip ? "lg:order-2" : ""}>
+          <p className="font-display text-[16px] font-medium text-[#463fa6]">{kicker}</p>
+          <h2 className="display mt-4 text-[36px] leading-[1.1] lg:text-[52px] lg:leading-[57px]">{title}</h2>
+          <p className="mt-5 max-w-[451px] text-base leading-6 tracking-[-0.01em] text-[#455366]">{body}</p>
         </div>
+        <div className={flip ? "lg:order-1" : ""}>{visual}</div>
       </div>
     </section>
+  )
+}
+
+function Panel({ children }) {
+  return (
+    <SilkFill fade="card" className="grid min-h-[360px] place-items-center rounded-[28px] p-8">
+      <div className="w-full max-w-[380px] rounded-[20px] bg-white p-5 shadow-[0_18px_40px_rgba(70,63,166,0.12)]">{children}</div>
+    </SilkFill>
   )
 }

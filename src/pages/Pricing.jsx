@@ -16,12 +16,12 @@ export default function Pricing() {
         {PLANS.map((plan) => (
           <article
             key={plan.name}
-            className={`flex flex-col rounded-[28px] p-7 ${plan.featured ? "bg-[#e6e1ff] shadow-float" : "wedge-card"}`}
+            className={`flex flex-col rounded-[20px] p-8 ${plan.featured ? "bg-[#f6f5ff]" : "border border-[#ebebeb] bg-white"}`}
           >
-            <h2 className="text-lg font-semibold">{plan.name}</h2>
+            <h2 className="display text-[24px]">{plan.name}</h2>
             {plan.featured ? <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#3d348f]">Most chosen</p> : <p className="mt-2 text-xs text-transparent">.</p>}
             <p className="mt-6 flex items-end gap-1">
-              <span className="text-5xl font-semibold tracking-[-0.04em]">{plan.price}</span>
+              <span className="display text-5xl">{plan.price}</span>
               <span className="mb-1 text-sm text-[#5c6478]">{plan.period}</span>
             </p>
             <p className="mt-3 text-sm leading-relaxed text-[#5c6478]">{plan.note}</p>
