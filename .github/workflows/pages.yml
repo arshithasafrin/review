@@ -1,8 +1,10 @@
 name: Deploy GitHub Pages
 
+# Version 2 is previewed on Vercel. Publishing every cursor branch
+# here would replace the version 1 GitHub Pages site.
 on:
   push:
-    branches: [main, "cursor/**"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
