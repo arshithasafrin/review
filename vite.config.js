@@ -1,9 +1,9 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 
-// Relative base so the same build works at the domain root,
-// on GitHub Pages (/review/), or any static folder.
+// Root-absolute assets so nested routes such as /blog/:slug
+// load the bundle on Vercel and local preview.
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [react()],
 })

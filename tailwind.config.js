@@ -17,7 +17,8 @@ export default {
         float: "0 32px 70px -28px rgba(55, 40, 130, 0.42), 0 8px 24px -16px rgba(55, 40, 130, 0.2)",
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Inter Tight"', "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },
