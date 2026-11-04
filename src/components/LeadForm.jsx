@@ -110,7 +110,7 @@ export function LeadForm({ idPrefix = "lead", plan = "", source = "inline", head
           <p className="mt-2 text-sm leading-relaxed text-ink">Name, restaurant, city, phone and how many outlets. That is the whole form.</p>
         </div>
       ) : null}
-      {plan ? <p className="mb-4 rounded-2xl bg-[#f6f3ff] px-3 py-2 text-sm font-semibold text-[#3d348f]">About the {plan} plan</p> : null}
+      {plan ? <p className="mb-4 rounded-2xl bg-[#fff6dc] px-3 py-2 text-sm font-semibold text-[#333333]">About the {plan} plan</p> : null}
       <div className="grid gap-3 sm:grid-cols-2">
         <Field id={`${idPrefix}-name`} name="name" label="Your name" autoComplete="name" />
         <Field id={`${idPrefix}-restaurant`} name="restaurant" label="Restaurant name" autoComplete="organization" />
@@ -137,7 +137,7 @@ export function LeadForm({ idPrefix = "lead", plan = "", source = "inline", head
       <input type="hidden" name="landing_path" value={attribution.landing_path || ""} />
       <input type="hidden" name="referrer" value={attribution.referrer || ""} />
       {attribution.utm_source ? (
-        <p className="mt-3 text-xs font-semibold text-[#5346c8]">Campaign source kept with this request: {attribution.utm_source}</p>
+        <p className="mt-3 text-xs font-semibold text-[#333333]">Campaign source kept with this request: {attribution.utm_source}</p>
       ) : null}
       {error ? (
         <p role="alert" className="mt-3 text-sm font-semibold text-warn">
@@ -201,7 +201,7 @@ function LeadDialog({ open, plan, source, onClose }) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-[#0b1640]/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
+    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-[#333333]/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
       <div
         ref={ref}
         role="dialog"

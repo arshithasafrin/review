@@ -32,7 +32,7 @@ export function QrMark({ className = "h-24 w-24" }) {
   return (
     <svg viewBox="0 0 21 21" className={className} aria-hidden="true">
       <rect width="21" height="21" fill="#fff" />
-      <g fill="#0B1640">{cells}</g>
+      <g fill="#333333">{cells}</g>
     </svg>
   )
 }
@@ -50,10 +50,10 @@ export function ReviewStand({ className = "" }) {
         <div className="mx-auto mt-4 w-fit rounded-2xl bg-white p-2.5 shadow-card">
           <QrMark className="h-[132px] w-[132px]" />
         </div>
-        <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#5346c8]">Scan to share</p>
+        <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#333333]">Scan to share</p>
       </div>
       <div className="mx-auto mt-3 h-2.5 w-36 rounded-full bg-[#e7e1d6]" />
-      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-[#0b1640]/10 blur-md" />
+      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-[#333333]/10 blur-md" />
       <figcaption className="mt-3 text-center text-xs text-mute">Review Stand mock. The QR mark is decorative.</figcaption>
     </figure>
   )
@@ -68,7 +68,7 @@ function Stars({ value, onChange, size = 28 }) {
         const filled = n <= value
         const node = (
           <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-            <path d={STAR_PATH} fill={filled ? "#5b4fd0" : "#e6e2f3"} />
+            <path d={STAR_PATH} fill={filled ? "#c8960a" : "#efe8d8"} />
           </svg>
         )
         if (!onChange) return <span key={n}>{node}</span>
@@ -94,11 +94,11 @@ export function PhoneMock() {
   const [rating, setRating] = useState(4)
   return (
     <div className="mx-auto w-full max-w-[300px]">
-      <div className="rounded-[2.2rem] bg-[#161433] p-2.5 shadow-float">
-        <div className="overflow-hidden rounded-[1.7rem] bg-[#fbfaff]">
+      <div className="rounded-[2.2rem] bg-[#333333] p-2.5 shadow-float">
+        <div className="overflow-hidden rounded-[1.7rem] bg-[#fffdf8]">
           <div className="flex items-center justify-between px-5 pb-1 pt-3 text-[11px] font-semibold text-navy">
             <span>9:41</span>
-            <span className="h-4 w-16 rounded-full bg-[#161433]" />
+            <span className="h-4 w-16 rounded-full bg-[#333333]" />
             <span>5G</span>
           </div>
           <div className="px-5 pb-5 pt-2">
@@ -114,13 +114,13 @@ export function PhoneMock() {
             <p className="mt-4 text-sm font-semibold text-navy">What should the team know?</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {["Food", "Service", "Ambience"].map((chip) => (
-                <span key={chip} className="rounded-full bg-[#efeaff] px-3 py-1.5 text-xs font-semibold text-[#3d348f]">
+                <span key={chip} className="rounded-full bg-[#fff3cc] px-3 py-1.5 text-xs font-semibold text-[#333333]">
                   {chip}
                 </span>
               ))}
             </div>
             <div className="mt-3 rounded-2xl bg-white px-3 py-3 text-sm text-mute shadow-card">The biryani and the calm service.</div>
-            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-gradient-to-br from-[#f7f3ff] via-[#d9ccff] to-[#b7a6ff] text-sm font-bold text-navy">
+            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-gradient-to-br from-[#fff6dc] via-[#ffe3a3] to-[#ffc72c] text-sm font-bold text-navy">
               Continue
             </div>
             <p className="mt-3 text-center text-[11px] leading-snug text-mute">Preview only. Guests do this in the browser. Nothing here is sent.</p>
@@ -142,7 +142,7 @@ export function FeedbackList({ compact = false }) {
   return (
     <ul className="space-y-3">
       {rows.map((row) => (
-        <li key={row.text} className="rounded-2xl bg-[#f7f6fb] px-3 py-3">
+        <li key={row.text} className="rounded-2xl bg-[#fbf8f2] px-3 py-3">
           <div className="flex items-center justify-between gap-2">
             <Stars value={row.stars} size={14} />
             <span className={`text-xs font-bold ${row.tone === "warn" ? "text-warn" : "text-good"}`}>{row.tag}</span>
@@ -157,7 +157,7 @@ export function FeedbackList({ compact = false }) {
 export function MiniStats() {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <div className="rounded-2xl bg-[#f7f6fb] px-2 py-3 text-center">
+      <div className="rounded-2xl bg-[#fbf8f2] px-2 py-3 text-center">
         <p className="text-xl font-extrabold tracking-tight text-navy">4.6</p>
         <p className="text-[11px] font-semibold text-mute">Average</p>
       </div>
@@ -183,11 +183,11 @@ export function DashboardMock() {
         </div>
         <div className="flex items-center gap-2">
           <SampleBadge />
-          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-[#f4f1ff] text-[#3d348f]">
+          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-[#fff6dc] text-[#333333]">
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               <path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2H4.5L6 16Z" strokeLinecap="round" />
             </svg>
-            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#5b4fd0]" />
+            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#c8960a]" />
           </span>
         </div>
       </div>
@@ -222,11 +222,11 @@ const ATTENTION = ["Waiting time", "Parking", "Weekend service", "Order delay", 
 export function ReportMock() {
   return (
     <article className="overflow-hidden rounded-[28px] bg-white shadow-float">
-      <div className="h-2 bg-gradient-to-r from-[#f4ebff] via-[#8d82f3] to-[#3d3494]" />
+      <div className="h-2 bg-gradient-to-r from-[#fff4d2] via-[#ffc72c] to-[#333333]" />
       <div className="p-5 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5346c8]">Monthly guest report</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#333333]">Monthly guest report</p>
             <h3 className="mt-1 text-2xl font-extrabold tracking-tight text-navy">March · Sample Bistro</h3>
           </div>
           <SampleBadge />
@@ -238,7 +238,7 @@ export function ReportMock() {
             ["89%", "Positive", "good"],
             ["7%", "Needs attention", "warn"],
           ].map(([value, label, tone]) => (
-            <div key={label} className="rounded-2xl bg-[#f7f6fb] px-3 py-4">
+            <div key={label} className="rounded-2xl bg-[#fbf8f2] px-3 py-4">
               <dt className="text-xs font-semibold text-mute">{label}</dt>
               <dd className={`mt-1 text-3xl font-extrabold tracking-tight ${tone === "good" ? "text-good" : tone === "warn" ? "text-warn" : "text-navy"}`}>{value}</dd>
             </div>
@@ -269,7 +269,7 @@ export function ReportMock() {
           </div>
         </div>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl bg-[#f7f6fb] p-4">
+          <div className="rounded-2xl bg-[#fbf8f2] p-4">
             <h4 className="text-sm font-extrabold text-navy">Outlet comparison</h4>
             <ul className="mt-3 space-y-3">
               {[
@@ -290,7 +290,7 @@ export function ReportMock() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-[#f7f6fb] p-4">
+          <div className="rounded-2xl bg-[#fbf8f2] p-4">
             <h4 className="text-sm font-extrabold text-navy">Top recurring themes</h4>
             <p className="mt-2 text-sm leading-relaxed text-ink">Biryani and staff warmth come up all month. Waiting time clusters on Friday and Saturday dinner.</p>
             <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-mute">Trend</p>
@@ -300,8 +300,8 @@ export function ReportMock() {
             </svg>
           </div>
         </div>
-        <blockquote className="mt-4 rounded-2xl border border-[#efeaff] bg-[#fbfaff] p-4 text-sm leading-relaxed text-navy">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#5346c8]">Recommended action</p>
+        <blockquote className="mt-4 rounded-2xl border border-[#fff3cc] bg-[#fffdf8] p-4 text-sm leading-relaxed text-navy">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#333333]">Recommended action</p>
           <p className="mt-2">
             Guest sentiment is strong overall, but waiting-time complaints increased during Friday and Saturday dinner service. Review staffing and order flow during peak hours.
           </p>

@@ -30,7 +30,7 @@ export function Nav() {
   }
 
   return (
-    <header className={`sticky top-0 z-30 ${scrolled || menu ? "border-b border-[#ece8f6] bg-white/90 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
+    <header className={`sticky top-0 z-30 ${scrolled || menu ? "border-b border-[#f3efe4] bg-white/90 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-3">
         <a href="#top" className="rounded-xl" aria-label="Restrosights home">
           <Logo size={34} />
@@ -50,7 +50,7 @@ export function Nav() {
         </div>
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-full border border-[#e4dff3] bg-white md:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-[#efe6cf] bg-white md:hidden"
           aria-expanded={menu}
           aria-controls="mobile-menu"
           onClick={() => setMenu((value) => !value)}
