@@ -222,7 +222,7 @@ export function SectionHeading({ eyebrow, title, children, center = false, id })
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? (
-        <p className="mb-3 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#5346c8]">{eyebrow}</p>
+        <p className="mb-3 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#4843b3]">{eyebrow}</p>
       ) : null}
       <h2 id={id} className="text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.035em] text-navy sm:text-4xl lg:text-[2.7rem] lg:leading-[1.12]">
         {title}
@@ -234,7 +234,7 @@ export function SectionHeading({ eyebrow, title, children, center = false, id })
 
 export function SampleBadge({ className = "" }) {
   return (
-    <span className={`inline-flex items-center rounded-full bg-[#f3f0ff] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[#4e43b5] ${className}`}>
+    <span className={`inline-flex items-center rounded-full bg-[#f4eeff] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[#4843b3] ${className}`}>
       Sample data
     </span>
   )

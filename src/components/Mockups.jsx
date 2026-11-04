@@ -32,7 +32,7 @@ export function QrMark({ className = "h-24 w-24" }) {
   return (
     <svg viewBox="0 0 21 21" className={className} aria-hidden="true">
       <rect width="21" height="21" fill="#fff" />
-      <g fill="#0B1640">{cells}</g>
+      <g fill="#0a1542">{cells}</g>
     </svg>
   )
 }
@@ -50,10 +50,10 @@ export function ReviewStand({ className = "" }) {
         <div className="mx-auto mt-4 w-fit rounded-2xl bg-white p-2.5 shadow-card">
           <QrMark className="h-[132px] w-[132px]" />
         </div>
-        <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#5346c8]">Scan to share</p>
+        <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#4843b3]">Scan to share</p>
       </div>
       <div className="mx-auto mt-3 h-2.5 w-36 rounded-full bg-[#e7e1d6]" />
-      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-[#0b1640]/10 blur-md" />
+      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-[#0a1542]/10 blur-md" />
       <figcaption className="mt-3 text-center text-xs text-mute">Review Stand mock. The QR mark is decorative.</figcaption>
     </figure>
   )
@@ -68,7 +68,7 @@ function Stars({ value, onChange, size = 28 }) {
         const filled = n <= value
         const node = (
           <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-            <path d={STAR_PATH} fill={filled ? "#5b4fd0" : "#e6e2f3"} />
+            <path d={STAR_PATH} fill={filled ? "#5348c4" : "#e8e0f6"} />
           </svg>
         )
         if (!onChange) return <span key={n}>{node}</span>
@@ -94,11 +94,11 @@ export function PhoneMock() {
   const [rating, setRating] = useState(4)
   return (
     <div className="mx-auto w-full max-w-[300px]">
-      <div className="rounded-[2.2rem] bg-[#161433] p-2.5 shadow-float">
-        <div className="overflow-hidden rounded-[1.7rem] bg-[#fbfaff]">
+      <div className="rounded-[2.2rem] bg-[#0a1542] p-2.5 shadow-float">
+        <div className="overflow-hidden rounded-[1.7rem] bg-[#fcfaff]">
           <div className="flex items-center justify-between px-5 pb-1 pt-3 text-[11px] font-semibold text-navy">
             <span>9:41</span>
-            <span className="h-4 w-16 rounded-full bg-[#161433]" />
+            <span className="h-4 w-16 rounded-full bg-[#0a1542]" />
             <span>5G</span>
           </div>
           <div className="px-5 pb-5 pt-2">
@@ -114,13 +114,13 @@ export function PhoneMock() {
             <p className="mt-4 text-sm font-semibold text-navy">What should the team know?</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {["Food", "Service", "Ambience"].map((chip) => (
-                <span key={chip} className="rounded-full bg-[#efeaff] px-3 py-1.5 text-xs font-semibold text-[#3d348f]">
+                <span key={chip} className="rounded-full bg-[#f3eaff] px-3 py-1.5 text-xs font-semibold text-[#3a3496]">
                   {chip}
                 </span>
               ))}
             </div>
             <div className="mt-3 rounded-2xl bg-white px-3 py-3 text-sm text-mute shadow-card">The biryani and the calm service.</div>
-            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-gradient-to-br from-[#f7f3ff] via-[#d9ccff] to-[#b7a6ff] text-sm font-bold text-navy">
+            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-gradient-to-br from-[#f6f0ff] via-[#d4c0fc] to-[#b99afc] text-sm font-bold text-navy">
               Continue
             </div>
             <p className="mt-3 text-center text-[11px] leading-snug text-mute">Preview only. Guests do this in the browser. Nothing here is sent.</p>
@@ -183,11 +183,11 @@ export function DashboardMock() {
         </div>
         <div className="flex items-center gap-2">
           <SampleBadge />
-          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-[#f4f1ff] text-[#3d348f]">
+          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-[#f6f0ff] text-[#3a3496]">
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               <path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2H4.5L6 16Z" strokeLinecap="round" />
             </svg>
-            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#5b4fd0]" />
+            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#5348c4]" />
           </span>
         </div>
       </div>
@@ -222,11 +222,11 @@ const ATTENTION = ["Waiting time", "Parking", "Weekend service", "Order delay", 
 export function ReportMock() {
   return (
     <article className="overflow-hidden rounded-[28px] bg-white shadow-float">
-      <div className="h-2 bg-gradient-to-r from-[#f4ebff] via-[#8d82f3] to-[#3d3494]" />
+      <div className="h-2 bg-gradient-to-r from-[#f3e9ff] via-[#8a89f8] to-[#3a3496]" />
       <div className="p-5 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5346c8]">Monthly guest report</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#4843b3]">Monthly guest report</p>
             <h3 className="mt-1 text-2xl font-extrabold tracking-tight text-navy">March · Sample Bistro</h3>
           </div>
           <SampleBadge />
@@ -300,8 +300,8 @@ export function ReportMock() {
             </svg>
           </div>
         </div>
-        <blockquote className="mt-4 rounded-2xl border border-[#efeaff] bg-[#fbfaff] p-4 text-sm leading-relaxed text-navy">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#5346c8]">Recommended action</p>
+        <blockquote className="mt-4 rounded-2xl border border-[#f3eaff] bg-[#fcfaff] p-4 text-sm leading-relaxed text-navy">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#4843b3]">Recommended action</p>
           <p className="mt-2">
             Guest sentiment is strong overall, but waiting-time complaints increased during Friday and Saturday dinner service. Review staffing and order flow during peak hours.
           </p>

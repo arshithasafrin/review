@@ -21,12 +21,12 @@ export function LogoMark({ size = 40, className = "", title = "Restrosights" }) 
     >
       <defs>
         <linearGradient id={grad} x1="8%" y1="0%" x2="88%" y2="100%">
-          <stop offset="0%" stopColor="#F7EEFF" />
-          <stop offset="12%" stopColor="#E5D0FE" />
+          <stop offset="0%" stopColor="#f4ecff" />
+          <stop offset="12%" stopColor="#dcc4fc" />
           <stop offset="32%" stopColor="#C4A6FC" />
-          <stop offset="52%" stopColor="#8E82F4" />
-          <stop offset="74%" stopColor="#564EC8" />
-          <stop offset="100%" stopColor="#3A3496" />
+          <stop offset="52%" stopColor="#8a89f8" />
+          <stop offset="74%" stopColor="#5348c4" />
+          <stop offset="100%" stopColor="#4843B3" />
         </linearGradient>
         <clipPath id={clip}>
           <rect width={MARK_W} height={MARK_H} rx={MARK_RX} />
