@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color: #0b1640;
+  color: #1e2a78;
   background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,16 +24,16 @@ body {
   margin: 0;
   min-height: 100vh;
   background: #ffffff;
-  color: #0b1640;
+  color: #1e2a78;
 }
 
 ::selection {
-  background: #d9d0ff;
-  color: #0b1640;
+  background: #e0e4ff;
+  color: #1e2a78;
 }
 
 :focus-visible {
-  outline: 2px solid #3c348f;
+  outline: 2px solid #1e2a78;
   outline-offset: 3px;
 }
 
@@ -46,7 +46,7 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #d9d3fe;
+  background: #e4e7ff;
   opacity: 0.45;
   pointer-events: none;
 }
@@ -90,15 +90,15 @@ body {
 }
 
 .section-mist {
-  background-image: linear-gradient(to bottom, #ffffff 0, #f7f6fc 140px, #f7f6fc calc(100% - 140px), #ffffff 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0, #f6f7fc 140px, #f6f7fc calc(100% - 140px), #ffffff 100%);
 }
 
 .journey-strip {
-  border: 1px solid rgba(88, 76, 190, 0.16);
+  border: 1px solid rgba(30, 42, 120, 0.16);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.55),
-    0 1px 1px rgba(40, 32, 100, 0.04),
-    0 16px 36px -16px rgba(62, 48, 140, 0.3);
+    0 1px 1px rgba(30, 42, 120, 0.04),
+    0 16px 36px -16px rgba(30, 42, 120, 0.3);
 }
 
 .journey-strip .silk {
@@ -111,25 +111,25 @@ body {
   inset: -16% -10% -18%;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 38% 34% at 34% 42%, rgba(232, 226, 255, 0.95) 0%, rgba(232, 226, 255, 0) 68%),
-    radial-gradient(ellipse 36% 40% at 68% 58%, rgba(150, 138, 236, 0.72) 0%, rgba(150, 138, 236, 0) 70%),
-    radial-gradient(ellipse 52% 48% at 50% 50%, #d5ceff 0%, rgba(213, 206, 255, 0.72) 34%, rgba(213, 206, 255, 0) 70%);
+    radial-gradient(ellipse 38% 34% at 34% 42%, rgba(243, 244, 255, 0.95) 0%, rgba(243, 244, 255, 0) 68%),
+    radial-gradient(ellipse 36% 40% at 68% 58%, rgba(79, 91, 255, 0.72) 0%, rgba(79, 91, 255, 0) 70%),
+    radial-gradient(ellipse 52% 48% at 50% 50%, #e8eaff 0%, rgba(197, 203, 255, 0.72) 34%, rgba(197, 203, 255, 0) 70%);
   filter: blur(26px);
 }
 
 .growth-card,
 .reputation-card {
-  color: #0b1640;
-  border: 1px solid rgba(88, 76, 190, 0.14);
+  color: #1e2a78;
+  border: 1px solid rgba(30, 42, 120, 0.14);
   background:
     radial-gradient(ellipse 80% 55% at 12% 0%, rgba(255, 255, 255, 0.95), transparent 58%),
-    radial-gradient(ellipse 70% 60% at 100% 18%, rgba(186, 176, 255, 0.75), transparent 62%),
-    radial-gradient(ellipse 80% 55% at 72% 100%, rgba(126, 116, 226, 0.38), transparent 64%),
-    linear-gradient(165deg, #e7e2ff 0%, #d5ceff 42%, #cdc4ff 100%);
+    radial-gradient(ellipse 70% 60% at 100% 18%, rgba(154, 166, 255, 0.75), transparent 62%),
+    radial-gradient(ellipse 80% 55% at 72% 100%, rgba(58, 68, 224, 0.38), transparent 64%),
+    linear-gradient(165deg, #f3f4ff 0%, #e8eaff 42%, #d5daff 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.75),
-    0 1px 1px rgba(40, 32, 100, 0.04),
-    0 16px 36px -18px rgba(62, 48, 140, 0.28);
+    0 1px 1px rgba(30, 42, 120, 0.04),
+    0 16px 36px -18px rgba(30, 42, 120, 0.28);
 }
 
 .reputation-card {
@@ -150,9 +150,9 @@ body {
   inset: -8%;
   background:
     radial-gradient(ellipse 80% 55% at 12% 8%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 58%),
-    radial-gradient(ellipse 60% 50% at 92% 18%, rgba(186, 176, 255, 0.75) 0%, rgba(186, 176, 255, 0) 62%),
-    radial-gradient(ellipse 70% 45% at 70% 88%, rgba(126, 116, 226, 0.38) 0%, rgba(126, 116, 226, 0) 64%),
-    linear-gradient(165deg, #e7e2ff 0%, #d5ceff 42%, #cdc4ff 100%);
+    radial-gradient(ellipse 60% 50% at 92% 18%, rgba(154, 166, 255, 0.75) 0%, rgba(154, 166, 255, 0) 62%),
+    radial-gradient(ellipse 70% 45% at 70% 88%, rgba(58, 68, 224, 0.38) 0%, rgba(58, 68, 224, 0) 64%),
+    linear-gradient(165deg, #f3f4ff 0%, #e8eaff 42%, #d5daff 100%);
 }
 
 .fold {
@@ -174,7 +174,7 @@ body {
 .f2 {
   top: 6%;
   height: 34%;
-  background: linear-gradient(90deg, rgba(150, 140, 235, 0.05), rgba(124, 114, 220, 0.72) 48%, rgba(180, 170, 250, 0.08));
+  background: linear-gradient(90deg, rgba(79, 91, 255, 0.05), rgba(58, 68, 224, 0.72) 48%, rgba(180, 188, 255, 0.08));
   transform: rotate(-24deg);
 }
 
@@ -188,14 +188,14 @@ body {
 .f4 {
   top: 48%;
   height: 32%;
-  background: linear-gradient(90deg, rgba(140, 128, 230, 0.08), rgba(116, 106, 214, 0.55) 50%, rgba(255, 255, 255, 0.12));
+  background: linear-gradient(90deg, rgba(79, 91, 255, 0.08), rgba(58, 68, 224, 0.55) 50%, rgba(255, 255, 255, 0.12));
   transform: rotate(-21deg);
 }
 
 .f5 {
   top: 66%;
   height: 36%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), rgba(214, 206, 255, 0.3) 70%, rgba(255, 255, 255, 0.1));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), rgba(232, 234, 255, 0.3) 70%, rgba(255, 255, 255, 0.1));
   transform: rotate(-14deg);
 }
 
@@ -249,9 +249,9 @@ body {
   justify-content: center;
   border-radius: 1rem;
   color: #fff;
-  background-image: linear-gradient(155deg, #f4ebff 0%, #d7b8fe 20%, #8d82f3 56%, #433ca8 100%);
+  background-image: linear-gradient(155deg, #7d88ff 0%, #4f5bff 46%, #3a44e0 100%);
   box-shadow:
-    0 14px 26px -16px rgba(55, 40, 140, 0.9),
+    0 14px 26px -16px rgba(30, 42, 120, 0.9),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
@@ -279,12 +279,12 @@ body {
 }
 
 .btn-primary {
-  color: #0b1640;
-  background-image: linear-gradient(155deg, #fbf9ff 0%, #e7dcff 36%, #cbb8ff 74%, #b7a4ff 100%);
-  border: 1px solid rgba(108, 96, 210, 0.28);
+  color: #fff;
+  background-image: linear-gradient(155deg, #5f6bff 0%, #4f5bff 42%, #3a44e0 100%);
+  border: 1px solid #3a44e0;
   box-shadow:
-    0 16px 32px -18px rgba(70, 48, 160, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    0 16px 32px -18px rgba(30, 42, 120, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .btn-primary:hover {
@@ -292,16 +292,16 @@ body {
 }
 
 .btn-secondary {
-  color: #0b1640;
+  color: #1e2a78;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 10px 24px -16px rgba(40, 30, 100, 0.45);
+  box-shadow: 0 10px 24px -16px rgba(30, 42, 120, 0.35);
 }
 
 .btn-line {
-  color: #0b1640;
+  color: #1e2a78;
   background: #fff;
-  border: 1px solid #e3dff2;
+  border: 1px solid #e0e3f4;
 }
 
 .field {
@@ -309,16 +309,16 @@ body {
   min-height: 48px;
   border-radius: 14px;
   border: 1px solid transparent;
-  background: #f3f1f8;
+  background: #eef0f8;
   padding: 0 0.9rem;
-  color: #0b1640;
+  color: #1e2a78;
 }
 
 .field:focus {
   outline: none;
-  border-color: #7d74ee;
+  border-color: #3a44e0;
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(125, 116, 238, 0.18);
+  box-shadow: 0 0 0 4px rgba(79, 91, 255, 0.18);
 }
 
 textarea.field {

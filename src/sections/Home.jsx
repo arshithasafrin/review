@@ -165,7 +165,7 @@ export function Hero() {
       <Silk edges="bottom" />
       <div className="wrap relative z-10">
         <Glow className="mx-auto max-w-4xl text-center">
-          <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#5346c8]">Restaurant reputation system</p>
+          <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#3a44e0]">Restaurant reputation system</p>
           <h1 className="mt-4 text-[1.85rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-navy sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
             Turn Every Dining Experience Into Better Reviews, Better Insights &amp; A Stronger Restaurant Reputation.
           </h1>
@@ -261,7 +261,7 @@ export function How() {
             <li key={num} className="rounded-[24px] border border-line p-4">
               <div className="flex items-center justify-between">
                 <IconTile name={icon} />
-                <span className="text-sm font-extrabold text-[#5346c8]">{num}</span>
+                <span className="text-sm font-extrabold text-[#3a44e0]">{num}</span>
               </div>
               <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
@@ -294,7 +294,7 @@ export function Stand() {
           </SectionHeading>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {["On the table", "Billing counter", "Reception", "Takeaway"].map((place) => (
-              <li key={place} className="rounded-2xl bg-[#f6f4ff] px-4 py-3 text-sm font-bold text-navy">{place}</li>
+              <li key={place} className="rounded-2xl bg-[#f3f4ff] px-4 py-3 text-sm font-bold text-navy">{place}</li>
             ))}
           </ul>
         </div>
@@ -328,7 +328,7 @@ export function Seo() {
         <SectionHeading eyebrow="Reviews and local SEO" title="Reviews That Build Trust — And Support Local SEO.">
           Build a steady flow of genuine customer reviews that can strengthen your restaurant&apos;s Google presence, local relevance and customer trust over time.
         </SectionHeading>
-        <p className="mt-4 max-w-3xl text-base font-semibold text-[#5346c8]">Build genuine reviews that support local trust and visibility.</p>
+        <p className="mt-4 max-w-3xl text-base font-semibold text-[#3a44e0]">Build genuine reviews that support local trust and visibility.</p>
         <ol className="mt-10 grid gap-3">
           {SEO_STEPS.map((step, index) => (
             <li key={step} className="flex items-start gap-4 rounded-[20px] border border-line px-4 py-4">
@@ -379,7 +379,7 @@ export function Filtration() {
         <ol className="mt-8 grid gap-3 md:grid-cols-5">
           {LOGIC.map((step, index) => (
             <li key={step} className="rounded-[20px] bg-white p-4 text-sm font-semibold leading-relaxed text-navy shadow-card">
-              <span className="mb-2 block text-xs font-extrabold text-[#5346c8]">0{index + 1}</span>
+              <span className="mb-2 block text-xs font-extrabold text-[#3a44e0]">0{index + 1}</span>
               {step}
             </li>
           ))}
@@ -456,10 +456,10 @@ export function Brand() {
           <article className="rounded-[24px] border border-line p-5">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-extrabold text-navy">Instagram bio</h3>
-              <span className="rounded-full bg-[#f4f1ff] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#4e43b5]">Example, not a client</span>
+              <span className="rounded-full bg-[#eef0ff] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#3a44e0]">Example, not a client</span>
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl bg-[#f6f5f8] p-4">
+              <div className="rounded-2xl bg-[#f4f5fb] p-4">
                 <p className="text-xs font-bold uppercase tracking-[0.14em] text-mute">Before</p>
                 <p className="mt-2 text-sm leading-relaxed text-navy">Best restaurant in town!!! DM for offers. Link in bio maybe.</p>
               </div>
@@ -489,7 +489,7 @@ export function Brand() {
           </div>
         </div>
         {film ? (
-          <div className="fixed inset-0 z-50 grid place-items-center bg-[#0b1640]/45 p-4" onMouseDown={() => setFilm(null)}>
+          <div className="fixed inset-0 z-50 grid place-items-center bg-[#1e2a78]/45 p-4" onMouseDown={() => setFilm(null)}>
             <div role="dialog" aria-modal="true" aria-labelledby="film-title" className="w-full max-w-md rounded-[28px] bg-white p-6 shadow-float" onMouseDown={(event) => event.stopPropagation()}>
               <h3 id="film-title" className="text-xl font-extrabold text-navy">{film}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink">These films are produced for your restaurant after you join. This preview does not play a sample client video, and it does not play sound.</p>
@@ -520,7 +520,7 @@ export function Multi() {
               ["Indiranagar", "4.6", "Steady"],
               ["Koramangala", "4.2", "Waiting time"],
             ].map(([name, score, note]) => (
-              <li key={name} className="flex items-center justify-between rounded-2xl bg-[#f7f6fb] px-4 py-3">
+              <li key={name} className="flex items-center justify-between rounded-2xl bg-[#f6f7fc] px-4 py-3">
                 <div>
                   <p className="font-extrabold text-navy">{name}</p>
                   <p className={`text-xs font-semibold ${note === "Steady" ? "text-good" : "text-warn"}`}>{note}</p>
@@ -549,18 +549,18 @@ export function Value() {
             <ul className="mt-4 space-y-3">
               {FRAGMENTED.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-ink">
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-[#f4f2f8] text-mute">–</span>
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-[#eef0f8] text-mute">–</span>
                   {item}
                 </li>
               ))}
             </ul>
           </article>
-          <article className="rounded-[24px] p-6 shadow-float" style={{ backgroundImage: "linear-gradient(165deg, #f7f3ff 0%, #e4d9ff 45%, #d4c6ff 100%)" }}>
+          <article className="rounded-[24px] p-6 shadow-float" style={{ backgroundImage: "linear-gradient(165deg, #f3f4ff 0%, #e0e4ff 45%, #c5cbff 100%)" }}>
             <h3 className="text-lg font-extrabold text-navy">Restrosights</h3>
             <ul className="mt-4 space-y-3">
               {INCLUDED.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-navy">
-                  <span className="grid h-7 w-7 flex-none place-items-center rounded-lg text-white" style={{ backgroundImage: "linear-gradient(155deg, #c9b0fe, #4a42b4)" }}>
+                  <span className="grid h-7 w-7 flex-none place-items-center rounded-lg text-white" style={{ background: "#3a44e0" }}>
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7.5" strokeLinecap="round" /></svg>
                   </span>
                   {item}
@@ -599,7 +599,7 @@ export function Pricing() {
               <ul className="mt-5 flex-1 space-y-2.5">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm font-semibold text-navy">
-                    <span className="mt-0.5 text-[#5346c8]" aria-hidden="true">✓</span>
+                    <span className="mt-0.5 text-[#3a44e0]" aria-hidden="true">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -625,15 +625,15 @@ export function Proof() {
         </SectionHeading>
         <div className="mt-8 flex flex-wrap gap-3">
           {["[Restaurant logo]", "[Restaurant logo]", "[Restaurant logo]", "[Restaurant logo]"].map((slot, index) => (
-            <div key={`${slot}-${index}`} className="grid h-16 min-w-36 place-items-center rounded-2xl border border-dashed border-[#d5d0e6] px-4 text-xs font-semibold text-mute">
+            <div key={`${slot}-${index}`} className="grid h-16 min-w-36 place-items-center rounded-2xl border border-dashed border-[#d4d8ee] px-4 text-xs font-semibold text-mute">
               {slot}
             </div>
           ))}
         </div>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PROOF.map((slot, index) => (
-            <div key={`${slot}-${index}`} className="flex min-h-40 flex-col justify-between rounded-[24px] border border-dashed border-[#d5d0e6] bg-[#fbfaff] p-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#5346c8]">Placeholder</p>
+            <div key={`${slot}-${index}`} className="flex min-h-40 flex-col justify-between rounded-[24px] border border-dashed border-[#d4d8ee] bg-[#f7f8ff] p-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3a44e0]">Placeholder</p>
               <p className="text-sm font-semibold leading-relaxed text-navy">{slot}</p>
             </div>
           ))}
@@ -676,7 +676,7 @@ export function Faq() {
                   onClick={() => toggle(index)}
                 >
                   <span className="text-base font-extrabold text-navy">{question}</span>
-                  <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-[#f4f1ff] text-lg text-[#3d348f]" aria-hidden="true">{expanded ? "–" : "+"}</span>
+                  <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-[#eef0ff] text-lg text-[#1e2a78]" aria-hidden="true">{expanded ? "–" : "+"}</span>
                 </button>
                 {expanded ? (
                   <div id={panelId} className="px-5 pb-5 text-sm leading-relaxed text-ink">

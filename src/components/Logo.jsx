@@ -47,7 +47,7 @@ export function Logo({ size = 40, wordmark = true, className = "", markClassName
     <span className={`inline-flex items-center gap-3 ${className}`}>
       <LogoMark size={size} className={markClassName} />
       {wordmark ? (
-        <span className="font-extrabold leading-none tracking-[-0.045em] text-navy" style={{ fontSize: Math.round(size * 0.62) }}>
+        <span className="font-extrabold leading-none tracking-[-0.045em] text-[#0B1640]" style={{ fontSize: Math.round(size * 0.62) }}>
           Restrosights
         </span>
       ) : null}
