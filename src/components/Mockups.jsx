@@ -40,7 +40,7 @@ export function QrMark({ className = "h-24 w-24" }) {
 export function ReviewStand({ className = "" }) {
   return (
     <figure className={`mx-auto w-full max-w-[260px] ${className}`}>
-      <div className="rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-float backdrop-blur-sm">
+      <div className="flat-card rounded-[28px] p-5">
         <div className="flex items-center justify-between">
           <LogoMark size={34} title="" />
           <SampleBadge />
@@ -222,7 +222,7 @@ const ATTENTION = ["Waiting time", "Parking", "Weekend service", "Order delay", 
 export function ReportMock() {
   return (
     <article className="overflow-hidden rounded-[28px] bg-white shadow-float">
-      <div className="h-2 bg-gradient-to-r from-lavender via-sky to-band" />
+      <div className="h-2 bg-sky" />
       <div className="p-5 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>

@@ -148,7 +148,7 @@ export function RevenueCalculator() {
         </SectionHeading>
 
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
-          <form className="order-2 rounded-[28px] border border-line bg-white p-5 shadow-card sm:p-6 lg:order-1" onSubmit={(event) => event.preventDefault()}>
+          <form className="flat-card order-2 rounded-[28px] p-5 sm:p-6 lg:order-1" onSubmit={(event) => event.preventDefault()}>
             <div className="grid gap-5">
               <SliderField id="covers" label="Covers or orders a month" min={200} max={8000} step={50} value={inputs.covers} onChange={(value) => patch("covers", value)} />
               <SliderField id="bill" label="Average bill" prefix="₹" min={200} max={4000} step={50} value={inputs.bill} onChange={(value) => patch("bill", value)} />
@@ -162,7 +162,7 @@ export function RevenueCalculator() {
             </div>
           </form>
 
-          <div className="order-1 self-start rounded-[28px] border border-sky/40 bg-gradient-to-b from-star to-[#E4EAFE] p-5 shadow-card sm:p-6 lg:sticky lg:top-24 lg:z-10 lg:order-2">
+          <div className="flat-card order-1 self-start rounded-[28px] p-5 sm:p-6 lg:sticky lg:top-24 lg:z-10 lg:order-2">
             <div role="tablist" aria-label="Which loss to show" className="grid grid-cols-2 gap-2 sm:grid-cols-4" onKeyDown={onTabsKeyDown}>
               {TABS.map((item) => {
                 const selected = tab === item.id
@@ -185,7 +185,7 @@ export function RevenueCalculator() {
             </div>
 
             <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${tab}`} className="mt-6">
-              <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">Estimated revenue lost</p>
+              <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-navy">Estimated revenue lost</p>
               <p className="mt-2 min-h-[3.25rem] text-4xl font-extrabold tabular-nums tracking-tight text-navy sm:text-5xl" aria-live="polite">
                 {formatInr(shown)}
                 <span className="ml-2 text-base font-semibold text-mute">/ month</span>
@@ -195,7 +195,7 @@ export function RevenueCalculator() {
               {tab === "combined" ? (
                 <ul className="mt-5 space-y-2">
                   {lines.map(([label, amount, note]) => (
-                    <li key={label} className="flex items-center justify-between gap-3 rounded-2xl bg-lavender/60 px-3 py-3">
+                    <li key={label} className="flex items-center justify-between gap-3 rounded-2xl bg-star px-3 py-3">
                       <span>
                         <span className="block text-sm font-semibold text-navy">{label}</span>
                         <span className="block text-xs text-mute">{note}</span>
@@ -224,7 +224,7 @@ export function RevenueCalculator() {
           </div>
         </div>
 
-        <details className="mt-6 rounded-[28px] border border-line bg-white px-5 py-4 sm:px-6">
+        <details className="flat-card mt-6 rounded-[28px] px-5 py-4 sm:px-6">
           <summary className="cursor-pointer text-sm font-extrabold text-navy">How we calculate this</summary>
           <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink">
             <p>
@@ -232,15 +232,15 @@ export function RevenueCalculator() {
             </p>
             <p>
               <strong className="font-semibold text-navy">Per star.</strong> Michael Luca, Harvard Business School Working Paper 12-016 (revised 2016), found a one-star increase on Yelp led to a 5–9% revenue increase for independent restaurants in Seattle, using Washington State tax receipts and the way Yelp rounds ratings. Chain restaurants showed little of that effect. This is Yelp in one US city, not Google in India. The slider stays inside that 5–9% range.{" "}
-              <a className="font-semibold text-royal underline" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=41233" target="_blank" rel="noreferrer">Working paper page</a>.
+              <a className="font-semibold text-navy underline" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=41233" target="_blank" rel="noreferrer">Working paper page</a>.
             </p>
             <p>
               <strong className="font-semibold text-navy">Fake reviews.</strong> If a share of the rating is fake, the rating without them is (current rating − share × fake stars) ÷ (1 − share). Only a drop counts. Luca and Zervas, Management Science (2016), found Yelp filtered about 16% of restaurant reviews in Boston through 2012, and filtered reviews were more extreme than the rest. The filter is not a perfect fake detector, so 16% is not used as your rate.{" "}
-              <a className="font-semibold text-royal underline" href="https://people.bu.edu/zg/publications/fakereviews.pdf" target="_blank" rel="noreferrer">Paper PDF</a>.
+              <a className="font-semibold text-navy underline" href="https://people.bu.edu/zg/publications/fakereviews.pdf" target="_blank" rel="noreferrer">Paper PDF</a>.
             </p>
             <p>
               <strong className="font-semibold text-navy">Unanswered 1-star reviews.</strong> Proserpio and Zervas, Marketing Science (2017), found Texas hotels that started replying on TripAdvisor gained about 0.12 stars, and about 12% more reviews. We apply 0.12 × the share you say is still unanswered. That scaling is our assumption. The study is hotels, not restaurants, and it is TripAdvisor, not Google.{" "}
-              <a className="font-semibold text-royal underline" href="https://pubsonline.informs.org/doi/10.1287/mksc.2017.1043" target="_blank" rel="noreferrer">Marketing Science</a>.
+              <a className="font-semibold text-navy underline" href="https://pubsonline.informs.org/doi/10.1287/mksc.2017.1043" target="_blank" rel="noreferrer">Marketing Science</a>.
             </p>
             <p>
               <strong className="font-semibold text-navy">Reviews with no text.</strong> No published study we could verify gives a revenue percent for a star rating with an empty comment. Luca did find diners respond more when a rating contains more information, and that elite reviews had about twice the impact of other reviews. That is about how many reviews there are and who wrote them, not about blank text. The “stars a blank review misses” control is an assumption you can set. It defaults to 0.10.

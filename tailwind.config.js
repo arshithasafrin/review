@@ -16,7 +16,7 @@ export default {
         eye: "#243044",
         beige: "#E2C79A",
         ink: "#243044",
-        mute: "#5C6578",
+        mute: "#576071",
         line: "#D2D8FD",
         mist: "#F7F7FE",
         good: "#067647",
