@@ -53,6 +53,8 @@ function useCountUp(target) {
 
 function SliderField({ id, label, hint, min, max, step, value, onChange, prefix = "", suffix = "" }) {
   const rangeId = `${id}-range`
+  const span = max - min || 1
+  const fill = `${((value - min) / span) * 100}%`
   function set(next) {
     const number = Number(next)
     if (Number.isNaN(number)) return
@@ -80,7 +82,8 @@ function SliderField({ id, label, hint, min, max, step, value, onChange, prefix 
       </div>
       <input
         id={rangeId}
-        className="mt-2 h-11 w-full cursor-pointer accent-sky"
+        className="range-light mt-2 w-full cursor-pointer"
+        style={{ "--fill": fill }}
         type="range"
         min={min}
         max={max}
@@ -95,7 +98,9 @@ function SliderField({ id, label, hint, min, max, step, value, onChange, prefix 
 }
 
 export function RevenueCalculator() {
-  const { openDemo } = useLead()
+  const { openDemo, dialogOpen } = useLead()
+  const sectionRef = useRef(null)
+  const [summaryVisible, setSummaryVisible] = useState(false)
   const [inputs, setInputs] = useState(DEFAULTS)
   const [tab, setTab] = useState("combined")
   const baseId = useId()
@@ -103,6 +108,17 @@ export function RevenueCalculator() {
   const active = result.scenarios[tab]
   const shown = useCountUp(active)
   const yearly = Math.round(shown) * 12
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
+    const observer = new IntersectionObserver(
+      ([entry]) => setSummaryVisible(entry.isIntersecting),
+      { threshold: 0.2 },
+    )
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
 
   function patch(key, value) {
     setInputs((current) => ({ ...current, [key]: value }))
@@ -125,7 +141,7 @@ export function RevenueCalculator() {
   ]
 
   return (
-    <section id="lost-revenue" className="relative scroll-mt-24 py-20 sm:py-28" aria-labelledby="lost-revenue-title">
+    <section ref={sectionRef} id="lost-revenue" className="relative scroll-mt-24 py-20 sm:py-28" aria-labelledby="lost-revenue-title">
       <div className="wrap">
         <SectionHeading center id="lost-revenue-title" eyebrow="The cost" title="What are those reviews costing the restaurant?">
           Move the sliders. The figure is an estimate from your own numbers and two published studies, not a forecast and not a promise of what Restrosights will recover.
@@ -146,7 +162,7 @@ export function RevenueCalculator() {
             </div>
           </form>
 
-          <div className="order-1 rounded-[28px] border border-sky/40 bg-gradient-to-b from-star to-[#E4EAFE] p-5 shadow-card sm:p-6 lg:order-2">
+          <div className="order-1 self-start rounded-[28px] border border-sky/40 bg-gradient-to-b from-star to-[#E4EAFE] p-5 shadow-card sm:p-6 lg:sticky lg:top-24 lg:z-10 lg:order-2">
             <div role="tablist" aria-label="Which loss to show" className="grid grid-cols-2 gap-2 sm:grid-cols-4" onKeyDown={onTabsKeyDown}>
               {TABS.map((item) => {
                 const selected = tab === item.id
@@ -236,6 +252,17 @@ export function RevenueCalculator() {
           </div>
         </details>
       </div>
+      {summaryVisible && !dialogOpen ? (
+        <div
+          className="fixed inset-x-0 z-30 border-t border-lavender bg-star/95 px-4 py-2 backdrop-blur-xl lg:hidden"
+          style={{ bottom: "calc(4.75rem + env(safe-area-inset-bottom))" }}
+        >
+          <p className="flex items-baseline justify-between gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-mute">Lost / month</span>
+            <span className="text-lg font-extrabold tabular-nums text-navy">{formatInr(result.scenarios.combined)}</span>
+          </p>
+        </div>
+      ) : null}
     </section>
   )
 }

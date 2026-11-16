@@ -357,6 +357,57 @@ h1, h2, h3, h4,
   box-shadow: 0 0 0 4px rgba(142, 162, 248, 0.45);
 }
 
+.range-light {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2.75rem;
+  background-color: transparent;
+  background-image: linear-gradient(var(--rs-sky), var(--rs-sky)), linear-gradient(var(--rs-lavender), var(--rs-lavender));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: var(--fill, 0%) 0.4rem, 100% 0.4rem;
+}
+
+.range-light::-webkit-slider-runnable-track {
+  height: 0.4rem;
+  background: transparent;
+  border: 0;
+}
+
+.range-light::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: -0.48rem;
+  border-radius: 999px;
+  border: 3px solid #fff;
+  background: var(--rs-sky);
+  box-shadow: 0 1px 3px rgba(72, 96, 228, 0.28);
+}
+
+.range-light::-moz-range-track {
+  height: 0.4rem;
+  background: var(--rs-lavender);
+  border: 0;
+  border-radius: 999px;
+}
+
+.range-light::-moz-range-progress {
+  height: 0.4rem;
+  background: var(--rs-sky);
+  border-radius: 999px;
+}
+
+.range-light::-moz-range-thumb {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 3px solid #fff;
+  background: var(--rs-sky);
+  box-shadow: 0 1px 3px rgba(72, 96, 228, 0.28);
+}
+
 textarea.field {
   min-height: 0;
   padding-top: 0.8rem;
