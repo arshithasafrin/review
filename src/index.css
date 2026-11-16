@@ -28,12 +28,29 @@ html {
   }
 }
 
+html,
+body {
+  background-color: var(--rs-star);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--rs-star);
   color: var(--rs-navy);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* One continuous wash for the whole page. Scrolls with the document, so iOS does not repaint a fixed layer. */
+.page-wash {
+  background-color: #f7f7fe;
+  background-image:
+    radial-gradient(ellipse 82% 28% at 12% 4%, rgba(142, 162, 248, 0.22), transparent 68%),
+    radial-gradient(ellipse 68% 24% at 96% 16%, rgba(210, 216, 253, 0.85), transparent 66%),
+    radial-gradient(ellipse 52% 20% at 0% 40%, rgba(210, 216, 253, 0.55), transparent 70%),
+    radial-gradient(ellipse 60% 18% at 100% 58%, rgba(142, 162, 248, 0.16), transparent 72%),
+    radial-gradient(ellipse 74% 18% at 22% 78%, rgba(210, 216, 253, 0.5), transparent 70%),
+    radial-gradient(ellipse 64% 16% at 84% 96%, rgba(142, 162, 248, 0.12), transparent 72%);
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4,
@@ -110,7 +127,7 @@ h1, h2, h3, h4,
 }
 
 .section-mist {
-  background-image: linear-gradient(to bottom, var(--rs-star) 0, var(--rs-lavender) 140px, var(--rs-lavender) calc(100% - 140px), var(--rs-star) 100%);
+  background: transparent;
 }
 
 .journey-strip {

@@ -32,7 +32,7 @@ export default function App() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-navy">
         Skip to content
       </a>
-      <div className="relative">
+      <div className="page-wash relative">
         <Nav />
         <main id="main">
           <Hero />
