@@ -16,6 +16,7 @@ export function Footer() {
           <p className="text-sm font-extrabold text-navy">On this page</p>
           <ul className="mt-3 space-y-2 text-sm font-semibold text-ink">
             <li><a className="inline-flex min-h-11 items-center" href="#how-it-works">How it works</a></li>
+            <li><a className="inline-flex min-h-11 items-center" href="#lost-revenue">Lost revenue</a></li>
             <li><a className="inline-flex min-h-11 items-center" href="#pricing">Pricing</a></li>
             <li><a className="inline-flex min-h-11 items-center" href="#faq">FAQ</a></li>
             <li><a className="inline-flex min-h-11 items-center" href="#demo-form">Book a demo</a></li>

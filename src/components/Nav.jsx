@@ -7,6 +7,7 @@ import { Button } from "./ui"
 const LINKS = [
   ["How it works", "#how-it-works"],
   ["The system", "#dashboard"],
+  ["Lost revenue", "#lost-revenue"],
   ["Pricing", "#pricing"],
   ["FAQ", "#faq"],
 ]

@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Footer } from "./components/Footer"
 import { LeadProvider } from "./components/LeadForm"
 import { Nav } from "./components/Nav"
+import { RevenueCalculator } from "./components/RevenueCalculator"
 import { Silk } from "./components/Silk"
 import { StickyCta } from "./components/StickyCta"
 import { initScrollDepth } from "./lib/analytics"
@@ -49,6 +50,7 @@ export default function App() {
           <Brand />
           <Multi />
           <Value />
+          <RevenueCalculator />
           <Pricing />
           <Proof />
           <Faq />
