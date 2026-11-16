@@ -32,7 +32,7 @@ export function QrMark({ className = "h-24 w-24" }) {
   return (
     <svg viewBox="0 0 21 21" className={className} aria-hidden="true">
       <rect width="21" height="21" fill="#fff" />
-      <g fill="#243044">{cells}</g>
+      <g fill="#0B1542">{cells}</g>
     </svg>
   )
 }
@@ -68,7 +68,7 @@ function Stars({ value, onChange, size = 28 }) {
         const filled = n <= value
         const node = (
           <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-            <path d={STAR_PATH} fill={filled ? "#6378F0" : "#D2D8FD"} />
+            <path d={STAR_PATH} fill={filled ? "#2843EA" : "#D2D8FD"} />
           </svg>
         )
         if (!onChange) return <span key={n}>{node}</span>
@@ -94,7 +94,7 @@ export function PhoneMock() {
   const [rating, setRating] = useState(4)
   return (
     <div className="mx-auto w-full max-w-[300px]">
-      <div className="rounded-[2.2rem] bg-sky p-2.5 shadow-float">
+      <div className="rounded-[2.2rem] bg-navy p-2.5 shadow-float">
         <div className="overflow-hidden rounded-[1.7rem] bg-star">
           <div className="flex items-center justify-between px-5 pb-1 pt-3 text-[11px] font-semibold text-navy">
             <span>9:41</span>
@@ -120,7 +120,7 @@ export function PhoneMock() {
               ))}
             </div>
             <div className="mt-3 rounded-2xl bg-white px-3 py-3 text-sm text-mute shadow-card">The biryani and the calm service.</div>
-            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-sky text-sm font-bold text-navy">
+            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-royal text-sm font-bold text-star">
               Continue
             </div>
             <p className="mt-3 text-center text-[11px] leading-snug text-mute">Preview only. Guests do this in the browser. Nothing here is sent.</p>

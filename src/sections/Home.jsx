@@ -491,7 +491,7 @@ export function Brand() {
           </div>
         </div>
         {film ? (
-          <div className="fixed inset-0 z-50 grid place-items-center bg-[#243044]/45 p-4" onMouseDown={() => setFilm(null)}>
+          <div className="fixed inset-0 z-50 grid place-items-center bg-navy/45 p-4" onMouseDown={() => setFilm(null)}>
             <div role="dialog" aria-modal="true" aria-labelledby="film-title" className="w-full max-w-md rounded-[28px] bg-white p-6 shadow-float" onMouseDown={(event) => event.stopPropagation()}>
               <h3 id="film-title" className="text-xl font-extrabold text-navy">{film}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink">These films are produced for your restaurant after you join. This preview does not play a sample client video, and it does not play sound.</p>
@@ -562,7 +562,7 @@ export function Value() {
             <ul className="mt-4 space-y-3">
               {INCLUDED.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-navy">
-                  <span className="grid h-7 w-7 flex-none place-items-center rounded-lg bg-sky text-navy">
+                  <span className="grid h-7 w-7 flex-none place-items-center rounded-lg bg-royal text-star">
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7.5" strokeLinecap="round" /></svg>
                   </span>
                   {item}
@@ -646,7 +646,7 @@ export function Pricing() {
             <article key={plan.id} className={`flex flex-col rounded-[28px] p-6 ${plan.featured ? "growth-card lg:-mt-3 lg:mb-3" : "border border-line bg-white"}`}>
               <div className="flex items-center justify-between gap-2">
                 <h3 className="text-lg font-extrabold text-navy">{plan.name}</h3>
-                {plan.featured ? <span className="rounded-full bg-sky px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Most popular</span> : null}
+                {plan.featured ? <span className="rounded-full bg-royal px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-star">Most popular</span> : null}
               </div>
               <p className="mt-4 text-4xl font-extrabold tracking-tight text-navy">
                 {plan.price} <span className="text-base font-semibold text-mute">{plan.cadence}</span>

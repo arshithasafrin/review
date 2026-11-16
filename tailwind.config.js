@@ -4,19 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        // #4860E4 is sampled from the icon and passes AA as small text on Star White.
-        royal: "#4860E4",
-        // #8EA2F8 is the icon's light sky blue. Dark text on it passes AA; white text does not.
-        sky: "#8EA2F8",
+        royal: "#2843EA",
+        sky: "#2843EA",
         band: "#6378F0",
         lavender: "#D2D8FD",
         star: "#F7F7FE",
-        // Dark neutral for reading text. Not used as a fill.
-        navy: "#243044",
-        eye: "#243044",
+        navy: "#0B1542",
+        eye: "#1A2550",
         beige: "#E2C79A",
-        ink: "#243044",
-        mute: "#576071",
+        ink: "#1A2550",
+        mute: "#3E4C6E",
         line: "#D2D8FD",
         mist: "#F7F7FE",
         good: "#067647",

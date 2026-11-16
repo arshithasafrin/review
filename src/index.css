@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --rs-royal: #4860e4;
-  --rs-sky: #8ea2f8;
+  --rs-royal: #2843ea;
+  --rs-sky: #2843ea;
   --rs-band: #6378f0;
   --rs-lavender: #d2d8fd;
   --rs-star: #f7f7fe;
-  --rs-navy: #243044;
-  --rs-eye: #243044;
+  --rs-navy: #0b1542;
+  --rs-eye: #1a2550;
   --rs-beige: #e2c79a;
   color: var(--rs-navy);
   background: var(--rs-star);
@@ -44,12 +44,12 @@ body {
 .page-wash {
   background-color: #f7f7fe;
   background-image:
-    radial-gradient(ellipse 82% 28% at 12% 4%, rgba(142, 162, 248, 0.22), transparent 68%),
-    radial-gradient(ellipse 68% 24% at 96% 16%, rgba(210, 216, 253, 0.85), transparent 66%),
-    radial-gradient(ellipse 52% 20% at 0% 40%, rgba(210, 216, 253, 0.55), transparent 70%),
-    radial-gradient(ellipse 60% 18% at 100% 58%, rgba(142, 162, 248, 0.16), transparent 72%),
-    radial-gradient(ellipse 74% 18% at 22% 78%, rgba(210, 216, 253, 0.5), transparent 70%),
-    radial-gradient(ellipse 64% 16% at 84% 96%, rgba(142, 162, 248, 0.12), transparent 72%);
+    radial-gradient(ellipse 82% 28% at 12% 4%, rgba(99, 120, 240, 0.2), transparent 68%),
+    radial-gradient(ellipse 68% 24% at 96% 16%, rgba(210, 216, 253, 0.9), transparent 66%),
+    radial-gradient(ellipse 52% 20% at 0% 40%, rgba(210, 216, 253, 0.6), transparent 70%),
+    radial-gradient(ellipse 60% 18% at 100% 58%, rgba(40, 67, 234, 0.1), transparent 72%),
+    radial-gradient(ellipse 74% 18% at 22% 78%, rgba(210, 216, 253, 0.55), transparent 70%),
+    radial-gradient(ellipse 64% 16% at 84% 96%, rgba(99, 120, 240, 0.14), transparent 72%);
   background-repeat: no-repeat;
 }
 
@@ -271,10 +271,10 @@ h1, h2, h3, h4,
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  color: var(--rs-navy);
-  background: #8ea2f8;
-  border: 1px solid #7e96f6;
-  box-shadow: 0 8px 18px -12px rgba(99, 120, 240, 0.4);
+  color: var(--rs-star);
+  background: var(--rs-royal);
+  border: 1px solid #1f35c4;
+  box-shadow: 0 8px 18px -12px rgba(11, 21, 66, 0.45);
 }
 
 .btn {
@@ -302,10 +302,10 @@ h1, h2, h3, h4,
 }
 
 .btn-primary {
-  color: var(--rs-navy);
-  background: var(--rs-sky);
-  border: 1px solid #7e96f6;
-  box-shadow: 0 16px 32px -18px rgba(99, 120, 240, 0.55);
+  color: var(--rs-star);
+  background: var(--rs-royal);
+  border: 1px solid var(--rs-royal);
+  box-shadow: 0 16px 32px -18px rgba(11, 21, 66, 0.45);
 }
 
 .btn-primary:hover {

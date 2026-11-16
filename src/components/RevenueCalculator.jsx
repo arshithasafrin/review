@@ -162,7 +162,7 @@ export function RevenueCalculator() {
             </div>
           </form>
 
-          <div className="flat-card order-1 self-start rounded-[28px] p-5 sm:p-6 lg:sticky lg:top-24 lg:z-10 lg:order-2">
+          <div className="order-1 self-start rounded-[28px] border border-eye bg-navy p-5 text-star shadow-card sm:p-6 lg:sticky lg:top-24 lg:z-10 lg:order-2">
             <div role="tablist" aria-label="Which loss to show" className="grid grid-cols-2 gap-2 sm:grid-cols-4" onKeyDown={onTabsKeyDown}>
               {TABS.map((item) => {
                 const selected = tab === item.id
@@ -175,7 +175,7 @@ export function RevenueCalculator() {
                     aria-selected={selected}
                     aria-controls={`${baseId}-panel`}
                     tabIndex={selected ? 0 : -1}
-                    className={`min-h-12 rounded-2xl px-2 text-center text-xs font-semibold leading-tight ${selected ? "bg-sky text-navy" : "border border-lavender bg-star text-navy"}`}
+                    className={`min-h-12 rounded-2xl px-2 text-center text-xs font-semibold leading-tight ${selected ? "bg-royal text-star" : "border border-star/30 bg-eye text-star"}`}
                     onClick={() => setTab(item.id)}
                   >
                     {item.label}
@@ -185,30 +185,30 @@ export function RevenueCalculator() {
             </div>
 
             <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${tab}`} className="mt-6">
-              <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-navy">Estimated revenue lost</p>
-              <p className="mt-2 min-h-[3.25rem] text-4xl font-extrabold tabular-nums tracking-tight text-navy sm:text-5xl" aria-live="polite">
+              <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-band">Estimated revenue lost</p>
+              <p className="mt-2 min-h-[3.25rem] text-4xl font-extrabold tabular-nums tracking-tight text-star sm:text-5xl" aria-live="polite">
                 {formatInr(shown)}
-                <span className="ml-2 text-base font-semibold text-mute">/ month</span>
+                <span className="ml-2 text-base font-semibold text-lavender">/ month</span>
               </p>
-              <p className="mt-1 min-h-6 text-sm font-semibold tabular-nums text-ink">{formatInr(yearly)} a year</p>
+              <p className="mt-1 min-h-6 text-sm font-semibold tabular-nums text-lavender">{formatInr(yearly)} a year</p>
 
               {tab === "combined" ? (
                 <ul className="mt-5 space-y-2">
                   {lines.map(([label, amount, note]) => (
-                    <li key={label} className="flex items-center justify-between gap-3 rounded-2xl bg-star px-3 py-3">
+                    <li key={label} className="flex items-center justify-between gap-3 rounded-2xl bg-eye px-3 py-3">
                       <span>
-                        <span className="block text-sm font-semibold text-navy">{label}</span>
-                        <span className="block text-xs text-mute">{note}</span>
+                        <span className="block text-sm font-semibold text-star">{label}</span>
+                        <span className="block text-xs text-lavender">{note}</span>
                       </span>
-                      <span className="text-sm font-extrabold tabular-nums text-navy">{formatInr(amount)}</span>
+                      <span className="text-sm font-extrabold tabular-nums text-star">{formatInr(amount)}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="mt-4 text-sm leading-relaxed text-ink">{HELP[tab]}</p>
+                <p className="mt-4 text-sm leading-relaxed text-star/90">{HELP[tab]}</p>
               )}
 
-              <p className="mt-4 text-xs leading-relaxed text-mute">
+              <p className="mt-4 text-xs leading-relaxed text-lavender">
                 {tab === "combined"
                   ? "The three lines can overlap. One fake, unanswered, textless 1-star can sit in more than one of them. The total is an illustration, not a sum of separate bills."
                   : `This is ${formatInr(result.scenarios.combined)} a month if you add all three, with the same overlap.`}
