@@ -8,7 +8,7 @@ export function Footer() {
       <div className="wrap grid gap-8 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo size={36} />
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink">
+          <p className="mt-[18px] max-w-sm text-sm leading-relaxed text-ink">
             A restaurant reputation and guest experience system. Genuine reviews, earlier feedback, and a monthly read of what diners are telling you.
           </p>
         </div>
