@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://restrosights.vercel.app/sitemap.xml
