@@ -328,11 +328,14 @@ export function Seo() {
           Build a steady flow of genuine customer reviews that can strengthen your restaurant&apos;s Google presence, local relevance and customer trust over time.
         </SectionHeading>
         <p className="mt-4 max-w-3xl text-base font-semibold text-royal">Build genuine reviews that support local trust and visibility.</p>
-        <ol className="mt-10 grid gap-3">
+        <ol className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-6">
           {SEO_STEPS.map((step, index) => (
-            <li key={step} className="flat-card flex items-start gap-4 rounded-[20px] px-4 py-4">
+            <li
+              key={step}
+              className={`flat-card flex min-h-[5.25rem] items-center gap-4 rounded-[20px] px-4 py-4 lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""} ${index === 4 ? "lg:col-start-4" : ""}`}
+            >
               <span className="icon-tile h-11 w-11 rounded-xl text-sm font-extrabold">{index + 1}</span>
-              <p className="pt-2 text-base font-semibold text-navy">{step}</p>
+              <p className="text-base font-semibold text-navy">{step}</p>
             </li>
           ))}
         </ol>
