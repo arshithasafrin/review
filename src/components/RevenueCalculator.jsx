@@ -80,7 +80,7 @@ function SliderField({ id, label, hint, min, max, step, value, onChange, prefix 
       </div>
       <input
         id={rangeId}
-        className="mt-2 h-11 w-full cursor-pointer accent-royal"
+        className="mt-2 h-11 w-full cursor-pointer accent-sky"
         type="range"
         min={min}
         max={max}
@@ -146,7 +146,7 @@ export function RevenueCalculator() {
             </div>
           </form>
 
-          <div className="order-1 rounded-[28px] border border-line bg-white p-5 shadow-card sm:p-6 lg:order-2">
+          <div className="order-1 rounded-[28px] border border-sky/40 bg-gradient-to-b from-star to-[#E4EAFE] p-5 shadow-card sm:p-6 lg:order-2">
             <div role="tablist" aria-label="Which loss to show" className="grid grid-cols-2 gap-2 sm:grid-cols-4" onKeyDown={onTabsKeyDown}>
               {TABS.map((item) => {
                 const selected = tab === item.id
@@ -159,7 +159,7 @@ export function RevenueCalculator() {
                     aria-selected={selected}
                     aria-controls={`${baseId}-panel`}
                     tabIndex={selected ? 0 : -1}
-                    className={`min-h-12 rounded-2xl px-2 text-center text-xs font-semibold leading-tight ${selected ? "bg-royal text-star" : "border border-lavender bg-star text-navy"}`}
+                    className={`min-h-12 rounded-2xl px-2 text-center text-xs font-semibold leading-tight ${selected ? "bg-sky text-navy" : "border border-lavender bg-star text-navy"}`}
                     onClick={() => setTab(item.id)}
                   >
                     {item.label}

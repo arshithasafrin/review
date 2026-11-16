@@ -32,7 +32,7 @@ export function QrMark({ className = "h-24 w-24" }) {
   return (
     <svg viewBox="0 0 21 21" className={className} aria-hidden="true">
       <rect width="21" height="21" fill="#fff" />
-      <g fill="#0B1542">{cells}</g>
+      <g fill="#243044">{cells}</g>
     </svg>
   )
 }
@@ -53,7 +53,7 @@ export function ReviewStand({ className = "" }) {
         <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-royal">Scan to share</p>
       </div>
       <div className="mx-auto mt-3 h-2.5 w-36 rounded-full bg-beige" />
-      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-[#0B1542]/10 blur-md" />
+      <div className="mx-auto mt-2 h-3 w-44 rounded-full bg-sky/40 blur-md" />
       <figcaption className="mt-3 text-center text-xs text-mute">Review Stand mock. The QR mark is decorative.</figcaption>
     </figure>
   )
@@ -68,7 +68,7 @@ function Stars({ value, onChange, size = 28 }) {
         const filled = n <= value
         const node = (
           <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-            <path d={STAR_PATH} fill={filled ? "#2843EA" : "#D2D8FD"} />
+            <path d={STAR_PATH} fill={filled ? "#6378F0" : "#D2D8FD"} />
           </svg>
         )
         if (!onChange) return <span key={n}>{node}</span>
@@ -94,11 +94,11 @@ export function PhoneMock() {
   const [rating, setRating] = useState(4)
   return (
     <div className="mx-auto w-full max-w-[300px]">
-      <div className="rounded-[2.2rem] bg-[#0B1542] p-2.5 shadow-float">
+      <div className="rounded-[2.2rem] bg-sky p-2.5 shadow-float">
         <div className="overflow-hidden rounded-[1.7rem] bg-star">
           <div className="flex items-center justify-between px-5 pb-1 pt-3 text-[11px] font-semibold text-navy">
             <span>9:41</span>
-            <span className="h-4 w-16 rounded-full bg-[#0B1542]" />
+            <span className="h-4 w-16 rounded-full bg-band" />
             <span>5G</span>
           </div>
           <div className="px-5 pb-5 pt-2">
@@ -114,13 +114,13 @@ export function PhoneMock() {
             <p className="mt-4 text-sm font-semibold text-navy">What should the team know?</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {["Food", "Service", "Ambience"].map((chip) => (
-                <span key={chip} className="rounded-full bg-lavender px-3 py-1.5 text-xs font-semibold text-royal">
+                <span key={chip} className="rounded-full bg-lavender px-3 py-1.5 text-xs font-semibold text-navy">
                   {chip}
                 </span>
               ))}
             </div>
             <div className="mt-3 rounded-2xl bg-white px-3 py-3 text-sm text-mute shadow-card">The biryani and the calm service.</div>
-            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-royal text-sm font-bold text-star">
+            <div className="mt-4 grid min-h-12 place-items-center rounded-full bg-sky text-sm font-bold text-navy">
               Continue
             </div>
             <p className="mt-3 text-center text-[11px] leading-snug text-mute">Preview only. Guests do this in the browser. Nothing here is sent.</p>
@@ -183,11 +183,11 @@ export function DashboardMock() {
         </div>
         <div className="flex items-center gap-2">
           <SampleBadge />
-          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-lavender text-royal">
+          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-lavender text-navy">
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               <path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2H4.5L6 16Z" strokeLinecap="round" />
             </svg>
-            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#2843EA]" />
+            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-band" />
           </span>
         </div>
       </div>
@@ -222,7 +222,7 @@ const ATTENTION = ["Waiting time", "Parking", "Weekend service", "Order delay", 
 export function ReportMock() {
   return (
     <article className="overflow-hidden rounded-[28px] bg-white shadow-float">
-      <div className="h-2 bg-gradient-to-r from-lavender via-band to-royal" />
+      <div className="h-2 bg-gradient-to-r from-lavender via-sky to-band" />
       <div className="p-5 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>

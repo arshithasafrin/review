@@ -110,7 +110,7 @@ export function LeadForm({ idPrefix = "lead", plan = "", source = "inline", head
           <p className="mt-2 text-sm leading-relaxed text-ink">Name, restaurant, city, phone and how many outlets. That is the whole form.</p>
         </div>
       ) : null}
-      {plan ? <p className="mb-4 rounded-2xl bg-lavender px-3 py-2 text-sm font-semibold text-royal">About the {plan} plan</p> : null}
+      {plan ? <p className="mb-4 rounded-2xl bg-lavender px-3 py-2 text-sm font-semibold text-navy">About the {plan} plan</p> : null}
       <div className="grid gap-3 sm:grid-cols-2">
         <Field id={`${idPrefix}-name`} name="name" label="Your name" autoComplete="name" />
         <Field id={`${idPrefix}-restaurant`} name="restaurant" label="Restaurant name" autoComplete="organization" />
@@ -201,7 +201,7 @@ function LeadDialog({ open, plan, source, onClose }) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-navy/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
+    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-[#243044]/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
       <div
         ref={ref}
         role="dialog"

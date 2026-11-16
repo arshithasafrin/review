@@ -234,7 +234,7 @@ export function SectionHeading({ eyebrow, title, children, center = false, id })
 
 export function SampleBadge({ className = "" }) {
   return (
-    <span className={`inline-flex items-center rounded-full bg-lavender px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-royal ${className}`}>
+    <span className={`inline-flex items-center rounded-full bg-lavender px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-navy ${className}`}>
       Sample data
     </span>
   )
