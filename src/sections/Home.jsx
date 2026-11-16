@@ -193,7 +193,7 @@ export function Hero() {
             <div className="rise">
               <ReviewStand />
             </div>
-            <div className="flat-card rise rounded-[24px] p-4">
+            <div className="rise rounded-[24px] bg-white p-4 shadow-card">
               <SampleBadge />
               <p className="mt-3 text-4xl font-extrabold tracking-tight text-good">89%</p>
               <p className="text-sm font-semibold text-navy">Positive guest sentiment</p>
@@ -203,7 +203,7 @@ export function Hero() {
             <PhoneMock />
           </div>
           <div className="order-3 grid gap-4">
-            <div className="flat-card rounded-[24px] p-4">
+            <div className="rounded-[24px] bg-white p-4 shadow-card">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-sm font-extrabold text-navy">Whitefield</p>
                 <SampleBadge />
@@ -213,7 +213,7 @@ export function Hero() {
                 <MiniStats />
               </div>
             </div>
-            <div className="flat-card rounded-[24px] p-4">
+            <div className="rounded-[24px] bg-white p-4 shadow-card">
               <p className="mb-3 text-sm font-extrabold text-navy">Recent feedback</p>
               <FeedbackList compact />
             </div>
@@ -234,7 +234,7 @@ export function Pain() {
         </SectionHeading>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PAIN.map(([icon, title, copy]) => (
-            <article key={title} className="flat-card rounded-[24px] p-5">
+            <article key={title} className="rounded-[24px] border border-line bg-white p-5 shadow-card">
               <IconTile name={icon} />
               <h3 className="mt-4 text-lg font-extrabold tracking-tight text-navy">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
@@ -258,10 +258,10 @@ export function How() {
         </SectionHeading>
         <ol className="mt-12 grid gap-4 md:grid-cols-5">
           {STEPS.map(([num, icon, title, copy]) => (
-            <li key={num} className="flat-card rounded-[24px] p-4">
+            <li key={num} className="rounded-[24px] border border-line p-4">
               <div className="flex items-center justify-between">
                 <IconTile name={icon} />
-                <span className="text-sm font-extrabold text-navy">{num}</span>
+                <span className="text-sm font-extrabold text-royal">{num}</span>
               </div>
               <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
@@ -287,7 +287,7 @@ export function Stand() {
   return (
     <section id="review-stand" className="relative scroll-mt-24 py-20 sm:py-28">
       <div className="wrap relative z-10 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="flat-card rounded-[28px] p-6 sm:p-8">
+        <div className="rounded-[28px] bg-white p-6 shadow-float sm:p-8">
           <SectionHeading eyebrow="Review Stand" title="A prompt where guests already pause.">
             The physical QR stand sits on the table, at the billing counter, at reception or with takeaway. Guests scan it and stay in the browser. Nothing to install.
           </SectionHeading>
@@ -332,7 +332,7 @@ export function Seo() {
           {SEO_STEPS.map((step, index) => (
             <li
               key={step}
-              className={`flat-card flex min-h-[5.25rem] items-center gap-4 rounded-[20px] px-4 py-4 lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""} ${index === 4 ? "lg:col-start-4" : ""}`}
+              className={`flex min-h-[5.25rem] items-center gap-4 rounded-[20px] border border-line bg-white px-4 py-4 lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""} ${index === 4 ? "lg:col-start-4" : ""}`}
             >
               <span className="icon-tile h-11 w-11 rounded-xl text-sm font-extrabold">{index + 1}</span>
               <p className="text-base font-semibold text-navy">{step}</p>
@@ -340,7 +340,7 @@ export function Seo() {
           ))}
         </ol>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <article className="flat-card rounded-[24px] p-5">
+          <article className="rounded-[24px] border border-line p-5">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-mute">Thin review</p>
             <p className="mt-3 text-2xl font-extrabold text-navy">“Good food.”</p>
             <p className="mt-3 text-sm text-ink">Little for the next diner, and little local context.</p>
@@ -371,7 +371,7 @@ export function Filtration() {
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map(([icon, title, copy]) => (
-            <article key={title} className="flat-card rounded-[24px] p-5">
+            <article key={title} className="rounded-[24px] bg-white p-5 shadow-card">
               <IconTile name={icon} />
               <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
@@ -380,8 +380,8 @@ export function Filtration() {
         </div>
         <ol className="mt-8 grid gap-3 md:grid-cols-5">
           {LOGIC.map((step, index) => (
-            <li key={step} className="flat-card rounded-[20px] p-4 text-sm font-semibold leading-relaxed text-navy">
-              <span className="mb-2 block text-xs font-extrabold text-navy">0{index + 1}</span>
+            <li key={step} className="rounded-[20px] bg-white p-4 text-sm font-semibold leading-relaxed text-navy shadow-card">
+              <span className="mb-2 block text-xs font-extrabold text-royal">0{index + 1}</span>
               {step}
             </li>
           ))}
@@ -455,7 +455,7 @@ export function Brand() {
           Growth includes Instagram bio optimisation, a Brand Story video and a Location Highlight video. The frames below show the shape of the work. They are not client results.
         </SectionHeading>
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          <article className="flat-card rounded-[24px] p-5">
+          <article className="rounded-[24px] border border-line p-5">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-extrabold text-navy">Instagram bio</h3>
               <span className="rounded-full bg-lavender px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Example, not a client</span>
@@ -476,8 +476,9 @@ export function Brand() {
               ["Brand Story", "Who you are, told without a hard sell."],
               ["Location Highlight", "The room, the neighbourhood, the reason to visit."],
             ].map(([title, copy]) => (
-              <article key={title} className="flat-card flex flex-col rounded-[24px] p-5">
-                <div className="relative grid h-36 place-items-center rounded-2xl bg-star">
+              <article key={title} className="flex flex-col rounded-[24px] border border-line p-5">
+                <div className="relative grid h-36 place-items-center rounded-2xl">
+                  <Silk edges="panel" />
                   <button type="button" className="relative z-10 grid h-14 w-14 place-items-center rounded-full bg-white text-lg font-extrabold text-navy shadow-card" onClick={() => openFilm(title)} aria-label={`About the ${title} video`}>
                     ▶
                   </button>
@@ -510,7 +511,7 @@ export function Multi() {
         <SectionHeading eyebrow="Multi-location" title="Know which restaurant location needs attention.">
           Each outlet has its own QR and review flow. You still get one central view: outlet-level feedback, a comparison, and a group read of the guest experience.
         </SectionHeading>
-        <div className="flat-card rounded-[28px] p-5">
+        <div className="rounded-[28px] bg-white p-5 shadow-card">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-extrabold text-navy">Central view</h3>
             <SampleBadge />
@@ -521,7 +522,7 @@ export function Multi() {
               ["Indiranagar", "4.6", "Steady"],
               ["Koramangala", "4.2", "Waiting time"],
             ].map(([name, score, note]) => (
-              <li key={name} className="flex items-center justify-between rounded-2xl bg-star px-4 py-3">
+              <li key={name} className="flex items-center justify-between rounded-2xl bg-lavender/70 px-4 py-3">
                 <div>
                   <p className="font-extrabold text-navy">{name}</p>
                   <p className={`text-xs font-semibold ${note === "Steady" ? "text-good" : "text-warn"}`}>{note}</p>
@@ -545,7 +546,7 @@ export function Value() {
           Most restaurants assemble this from separate vendors. Restrosights packages the work as one system.
         </SectionHeading>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <article className="flat-card rounded-[24px] p-6">
+          <article className="rounded-[24px] border border-line p-6">
             <h3 className="text-lg font-extrabold text-navy">Fragmented</h3>
             <ul className="mt-4 space-y-3">
               {FRAGMENTED.map((item) => (
@@ -583,13 +584,13 @@ function PlanCalculator() {
 
   return (
     <form
-      className="flat-card mx-auto mt-10 max-w-xl rounded-[28px] p-6 text-left"
+      className="mx-auto mt-10 max-w-xl rounded-[28px] border border-line bg-white p-6 text-left shadow-card"
       onSubmit={(event) => {
         event.preventDefault()
         openDemo("plan_calculator", group ? "Restaurant Group" : "Growth")
       }}
     >
-      <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-navy">Plan calculator</p>
+      <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">Plan calculator</p>
       <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy">Which published plan fits?</h3>
       <label className="mt-4 block text-sm font-semibold text-navy" htmlFor="outlet-count">
         Outlets
@@ -610,12 +611,12 @@ function PlanCalculator() {
         </p>
       ) : (
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl bg-star p-4">
+          <div className="rounded-2xl bg-lavender/70 p-4">
             <p className="text-sm font-extrabold text-navy">Starter</p>
             <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹2,499 <span className="text-sm font-semibold text-mute">/ month</span></p>
             <p className="mt-1 text-sm text-ink">1 location.</p>
           </div>
-          <div className="rounded-2xl bg-star p-4">
+          <div className="rounded-2xl bg-lavender/70 p-4">
             <p className="text-sm font-extrabold text-navy">Growth</p>
             <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹4,999 <span className="text-sm font-semibold text-mute">/ month</span></p>
             <p className="mt-1 text-sm text-ink">Full system, one restaurant.</p>
@@ -642,7 +643,7 @@ export function Pricing() {
         <PlanCalculator />
         <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-3">
           {PLANS.map((plan) => (
-            <article key={plan.id} className={`flat-card flex flex-col rounded-[28px] p-6 ${plan.featured ? "lg:-mt-3 lg:mb-3" : ""}`}>
+            <article key={plan.id} className={`flex flex-col rounded-[28px] p-6 ${plan.featured ? "growth-card lg:-mt-3 lg:mb-3" : "border border-line bg-white"}`}>
               <div className="flex items-center justify-between gap-2">
                 <h3 className="text-lg font-extrabold text-navy">{plan.name}</h3>
                 {plan.featured ? <span className="rounded-full bg-sky px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Most popular</span> : null}
@@ -655,7 +656,7 @@ export function Pricing() {
               <ul className="mt-5 flex-1 space-y-2.5">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm font-semibold text-navy">
-                    <span className="mt-0.5 text-navy" aria-hidden="true">✓</span>
+                    <span className="mt-0.5 text-royal" aria-hidden="true">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -718,7 +719,7 @@ export function Faq() {
         <SectionHeading eyebrow="FAQ" title="Frequently asked questions">
           Straight answers on the app, rankings, reviews and what Restrosights will not promise.
         </SectionHeading>
-        <div className="flat-card mt-8 divide-y divide-[#c3cbf9] overflow-hidden rounded-[28px]">
+        <div className="mt-8 divide-y divide-line rounded-[28px] border border-line">
           {FAQS.map(([question, answer], index) => {
             const expanded = open.has(index)
             const panelId = `faq-panel-${index}`

@@ -40,7 +40,7 @@ export function QrMark({ className = "h-24 w-24" }) {
 export function ReviewStand({ className = "" }) {
   return (
     <figure className={`mx-auto w-full max-w-[260px] ${className}`}>
-      <div className="flat-card rounded-[28px] p-5">
+      <div className="rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-float backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <LogoMark size={34} title="" />
           <SampleBadge />
