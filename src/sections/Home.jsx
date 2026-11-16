@@ -574,6 +574,60 @@ export function Value() {
   )
 }
 
+function PlanCalculator() {
+  const { openDemo } = useLead()
+  const [outlets, setOutlets] = useState("1")
+  const count = Math.min(50, Math.max(1, Number.parseInt(outlets, 10) || 1))
+  const group = count > 1
+
+  return (
+    <form
+      className="mx-auto mt-10 max-w-xl rounded-[28px] border border-line bg-white p-6 text-left shadow-card"
+      onSubmit={(event) => {
+        event.preventDefault()
+        openDemo("plan_calculator", group ? "Restaurant Group" : "Growth")
+      }}
+    >
+      <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">Plan calculator</p>
+      <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy">Which published plan fits?</h3>
+      <label className="mt-4 block text-sm font-semibold text-navy" htmlFor="outlet-count">
+        Outlets
+      </label>
+      <input
+        id="outlet-count"
+        className="field mt-1.5 max-w-[8rem]"
+        type="number"
+        min={1}
+        max={50}
+        inputMode="numeric"
+        value={outlets}
+        onChange={(event) => setOutlets(event.target.value)}
+      />
+      {group ? (
+        <p className="mt-4 text-sm leading-relaxed text-ink">
+          {count} outlets are Restaurant Group. That price is quoted. Starter is one location at ₹2,499 a month. Growth is ₹4,999 a month for one restaurant.
+        </p>
+      ) : (
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-2xl bg-lavender/70 p-4">
+            <p className="text-sm font-extrabold text-navy">Starter</p>
+            <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹2,499 <span className="text-sm font-semibold text-mute">/ month</span></p>
+            <p className="mt-1 text-sm text-ink">1 location.</p>
+          </div>
+          <div className="rounded-2xl bg-lavender/70 p-4">
+            <p className="text-sm font-extrabold text-navy">Growth</p>
+            <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹4,999 <span className="text-sm font-semibold text-mute">/ month</span></p>
+            <p className="mt-1 text-sm text-ink">Full system, one restaurant.</p>
+          </div>
+        </div>
+      )}
+      <Button className="mt-4" type="submit">
+        {group ? "Talk To Our Team" : "Book a Demo"}
+      </Button>
+    </form>
+  )
+}
+
 export function Pricing() {
   const { openDemo } = useLead()
   const ref = useRef(null)
@@ -584,6 +638,7 @@ export function Pricing() {
         <SectionHeading center eyebrow="Pricing" title="Three ways to start. One system, not five invoices.">
           ₹4,999 is the cost of the reputation system for a restaurant that wants the full monthly practice. It is not a software seat stacked on top of a consultant, an editor and a reporting tool.
         </SectionHeading>
+        <PlanCalculator />
         <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-3">
           {PLANS.map((plan) => (
             <article key={plan.id} className={`flex flex-col rounded-[28px] p-6 ${plan.featured ? "growth-card lg:-mt-3 lg:mb-3" : "border border-line bg-white"}`}>
