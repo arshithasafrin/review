@@ -6,10 +6,9 @@ import { Button } from "./ui"
 
 const LINKS = [
   ["How it works", "#how-it-works"],
-  ["The system", "#dashboard"],
-  ["Lost revenue", "#lost-revenue"],
   ["Pricing", "#pricing"],
   ["FAQ", "#faq"],
+  ["Calculator", "#lost-revenue"],
 ]
 
 export function Nav() {
@@ -31,14 +30,14 @@ export function Nav() {
   }
 
   return (
-    <header className={`sticky top-0 z-30 ${scrolled || menu ? "border-b border-lavender bg-star/90 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
+    <header className={`sticky top-0 z-30 ${scrolled || menu ? "border-b border-line bg-white/90 shadow-sm backdrop-blur-xl" : "bg-mist"}`}>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-[18px]">
         <a href="#top" className="shrink-0 rounded-xl" aria-label="Restrosights home">
           <Logo size={36} />
         </a>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {LINKS.map(([label, href]) => (
-            <a key={href} href={href} className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-ink">
+            <a key={href} href={href} className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-medium text-ink">
               {label}
             </a>
           ))}

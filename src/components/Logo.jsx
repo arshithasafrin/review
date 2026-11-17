@@ -23,7 +23,7 @@ export function LogoMark({ size = 32, className = "", title = "Restrosights" }) 
 }
 
 export function Logo({ size = 36, wordmark = true, tone = "light", className = "" }) {
-  const color = tone === "dark" ? "#F7F7FE" : "#0B1542"
+  const color = tone === "dark" ? "#F8F7F7" : "#102329"
   return (
     <span className={`inline-flex items-center ${className}`} style={{ gap: size * GAP_SCALE }}>
       <LogoMark size={size} title={wordmark ? "" : "Restrosights"} />

@@ -4,31 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // #4860E4 is sampled from the icon and passes AA as small text on Star White.
-        royal: "#4860E4",
-        // #8EA2F8 is the icon's light sky blue. Dark text on it passes AA; white text does not.
-        sky: "#8EA2F8",
-        band: "#6378F0",
-        lavender: "#D2D8FD",
-        star: "#F7F7FE",
-        // Dark neutral for reading text. Not used as a fill.
-        navy: "#243044",
-        eye: "#243044",
-        beige: "#E2C79A",
-        ink: "#243044",
-        mute: "#576071",
-        line: "#D2D8FD",
-        mist: "#F7F7FE",
+        glow: "#0085EE",
+        royal: "#0085EE",
+        sky: "#0085EE",
+        band: "#0085EE",
+        glowink: "#0077D6",
+        lavender: "#F8F7F7",
+        star: "#FFFFFF",
+        navy: "#102329",
+        ink: "#102329",
+        eye: "#102329",
+        beige: "#C2A463",
+        mute: "#4E5D63",
+        line: "#E6E4E4",
+        mist: "#F6F5F5",
         good: "#067647",
         warn: "#8A5A00",
       },
       boxShadow: {
-        card: "0 18px 50px -24px rgba(72, 96, 228, 0.16), 0 2px 8px rgba(36, 48, 68, 0.05)",
-        float: "0 32px 70px -28px rgba(99, 120, 240, 0.28), 0 8px 24px -16px rgba(72, 96, 228, 0.16)",
+        card: "0 1px 4px rgba(12, 12, 13, 0.05), 0 1px 4px rgba(12, 12, 13, 0.1)",
+        float: "0 28px 60px -28px rgba(16, 35, 41, 0.38), 0 10px 24px -16px rgba(16, 35, 41, 0.18)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ['"Plus Jakarta Sans"', "Inter", "ui-sans-serif", "sans-serif"],
+        display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"DM Mono"', "ui-monospace", "monospace"],
       },
     },

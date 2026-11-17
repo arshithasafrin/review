@@ -1,3 +1,31 @@
+import { useEffect, useRef, useState } from "react"
+
+export function Reveal({ children, className = "", delay = 0 }) {
+  const ref = useRef(null)
+  const [on, setOn] = useState(false)
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return undefined
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setOn(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.16 },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+  return (
+    <div ref={ref} className={`${className} ${on ? "reveal-in" : ""}`} style={{ animationDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  )
+}
+
 export function Icon({ name, className = "h-6 w-6" }) {
   const common = {
     className,
@@ -197,7 +225,14 @@ export function Button({
   href,
   ...props
 }) {
-  const cls = `btn ${variant === "primary" ? "btn-primary" : variant === "line" ? "btn-line" : "btn-secondary"} ${className}`
+  const variantClass = {
+    primary: "btn-primary",
+    secondary: "btn-secondary",
+    line: "btn-line",
+    gold: "btn-gold",
+    dark: "btn-dark",
+  }[variant] || "btn-secondary"
+  const cls = `btn ${variantClass} ${className}`
   const content = (
     <>
       {children}
@@ -221,21 +256,19 @@ export function Button({
 export function SectionHeading({ eyebrow, title, children, center = false, id }) {
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      {eyebrow ? (
-        <p className="mb-3 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">{eyebrow}</p>
-      ) : null}
-      <h2 id={id} className="text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.035em] text-navy sm:text-4xl lg:text-[2.7rem] lg:leading-[1.12]">
+      {eyebrow ? <p className="text-[15px] font-medium text-glowink">{eyebrow}</p> : null}
+      <h2 id={id} className="display mt-2 text-[2rem] text-navy sm:text-[2.75rem]">
         {title}
       </h2>
-      {children ? <div className="mt-4 text-base leading-relaxed text-ink sm:text-lg">{children}</div> : null}
+      {children ? <div className="mt-4 text-base leading-relaxed text-mute sm:text-[17px]">{children}</div> : null}
     </div>
   )
 }
 
 export function SampleBadge({ className = "" }) {
   return (
-    <span className={`inline-flex items-center rounded-full bg-lavender px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-navy ${className}`}>
-      Sample data
+    <span className={`inline-flex items-center rounded-full bg-[#E7F3FE] px-2.5 py-1 text-[11px] font-medium text-glowink ${className}`}>
+      Sample
     </span>
   )
 }

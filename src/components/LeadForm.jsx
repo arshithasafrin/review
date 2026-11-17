@@ -201,7 +201,7 @@ function LeadDialog({ open, plan, source, onClose }) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-[#243044]/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
+    <div className="fixed inset-0 z-50 grid place-items-end overflow-y-auto bg-[#102329]/45 p-3 sm:place-items-center sm:p-6" onMouseDown={onClose}>
       <div
         ref={ref}
         role="dialog"

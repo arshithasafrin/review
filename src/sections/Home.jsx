@@ -1,26 +1,39 @@
 import { useRef, useState } from "react"
 import { EVENTS, track, useOnceInView } from "../lib/analytics"
-import { DashboardMock, FeedbackList, MiniStats, PhoneMock, ReportMock, ReviewStand } from "../components/Mockups"
+import {
+  AlertCard,
+  DashboardPanel,
+  FakeReviewCard,
+  GbpCard,
+  GoogleSharePhone,
+  GrowthChart,
+  GuestPhone,
+  HeroStage,
+  InstagramCard,
+  OutletCompare,
+  PainVisual,
+  ReportCard,
+  ReviewStand,
+} from "../components/Mockups"
 import { LeadForm, useLead } from "../components/LeadForm"
-import { Silk } from "../components/Silk"
-import { Button, IconTile, SampleBadge, SectionHeading } from "../components/ui"
+import { Button, Icon, Reveal, SectionHeading } from "../components/ui"
 import { WhatsAppLink } from "../components/WhatsAppLink"
 
 const PAIN = [
-  ["clock", "Happy diners forget", "They leave satisfied and never post the review."],
-  ["megaphone", "Complaints become public", "Management discovers the issue only after a low-star review."],
-  ["eye", "No clear guest intelligence", "A star rating does not say what went wrong: food, service, waiting or ambience."],
-  ["pin", "Multi-outlet blind spots", "One outlet quietly underperforms while the others look fine."],
-  ["shield", "Fake reviews hurt trust", "You need a correct, policy-based response — not a guessing game."],
-  ["store", "Profile problems hurt discovery", "Google Business Profile issues affect whether you are found."],
+  ["forget", "Happy diners forget", "They leave satisfied, but never post the Google review they intended to."],
+  ["public", "Complaints become public", "Management may discover a service issue only after a low-star review appears online."],
+  ["intel", "No clear guest intelligence", "A Google star rating does not tell the owner what went wrong with food, service, waiting time or ambience."],
+  ["outlets", "Multi-outlet blind spots", "One outlet can quietly underperform while the brand sees only the overall picture."],
+  ["fake", "Fake reviews hurt trust", "Suspicious reviews can damage perception and require the correct policy-based response."],
+  ["profile", "Profile problems hurt discovery", "Google Business Profile issues can affect a restaurant’s ability to be found and trusted."],
 ]
 
 const STEPS = [
-  ["01", "qr", "Scan", "Guest scans the stand at the table, billing counter, reception or takeaway."],
-  ["02", "star", "Rate", "A quick 1–5 star rating."],
-  ["03", "pen", "Share", "What they loved, or what needs attention."],
-  ["04", "chart", "Grow", "Satisfied guests can continue their genuine Google review journey."],
-  ["05", "eye", "Learn", "The owner sees feedback, sentiment and recurring issues."],
+  ["01", "Scan", "Guest scans the Restrosights stand at the table, billing counter, reception or takeaway area."],
+  ["02", "Rate", "Guest gives a quick 1–5 star experience rating."],
+  ["03", "Share", "Guest tells the restaurant what they loved or what needs attention."],
+  ["04", "Grow", "Satisfied guests can continue their genuine Google review journey."],
+  ["05", "Learn", "Owner sees guest feedback, sentiment and recurring issues inside Restrosights."],
 ]
 
 const FLOW = ["Review Stand", "Guest", "Feedback", "Google review journey", "Owner dashboard", "Monthly insights"]
@@ -34,12 +47,12 @@ const SEO_STEPS = [
 ]
 
 const CATEGORIES = [
-  ["utensils", "Food quality", "Taste, temperature, consistency, portion."],
-  ["users", "Service", "Speed, attention, staff behaviour."],
-  ["hourglass", "Waiting time", "Queue, table delay, order delay."],
-  ["bag", "Order accuracy", "Wrong item, missing item, takeaway issue."],
-  ["sofa", "Ambience", "Noise, seating, comfort, cleanliness."],
-  ["tag", "Value perception", "Price, portion, expectations."],
+  ["Food quality", "Taste, temperature, consistency, portion."],
+  ["Service", "Speed, attention, staff behaviour."],
+  ["Waiting time", "Queue, table delay, order delay."],
+  ["Order accuracy", "Wrong item, missing item, takeaway issue."],
+  ["Ambience", "Noise, seating, comfort, cleanliness."],
+  ["Value perception", "Price, portion, expectations."],
 ]
 
 const LOGIC = [
@@ -76,6 +89,7 @@ const PLANS = [
     who: "For smaller restaurants wanting a professional feedback and review system.",
     cta: "Get Started",
     featured: false,
+    variant: "primary",
     features: [
       "App / PWA",
       "1 location",
@@ -95,6 +109,7 @@ const PLANS = [
     who: "For restaurants serious about reputation and brand growth.",
     cta: "Grow My Restaurant",
     featured: true,
+    variant: "gold",
     note: "Priced as one reputation system — feedback, reviews, profile support, brand and a monthly read of your guests — not another software line item.",
     features: [
       "Everything in Starter",
@@ -115,6 +130,7 @@ const PLANS = [
     who: "For chains, franchises and multi-outlet groups.",
     cta: "Talk To Our Team",
     featured: false,
+    variant: "dark",
     features: [
       "Multiple outlets",
       "Individual QR and review flows",
@@ -149,77 +165,42 @@ const FAQS = [
   ["What do I receive every month?", "Customer experience reporting with ratings, sentiment, recurring praise, recurring concerns and recommended management actions."],
 ]
 
-function Glow({ children, className = "" }) {
+function Check({ children, light = false }) {
   return (
-    <div className={`relative ${className}`}>
-      <div className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10 rounded-[40px] bg-white/55 blur-2xl" />
-      {children}
-    </div>
+    <li className="flex items-start gap-3 text-sm leading-relaxed">
+      <span className={`mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full ${light ? "bg-white/20 text-white" : "bg-[#E7F3FE] text-glow"}`}>
+        <Icon name="check" className="h-3.5 w-3.5" />
+      </span>
+      <span className={light ? "text-white/95" : "text-navy"}>{children}</span>
+    </li>
   )
 }
 
 export function Hero() {
   const { openDemo } = useLead()
   return (
-    <section id="top" className="relative -mt-[4.5rem] pb-16 pt-[5.75rem] sm:pb-24 sm:pt-[6.5rem]">
-      <Silk edges="bottom" />
-      <div className="wrap relative z-10">
-        <Glow className="mx-auto max-w-4xl text-center">
-          <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">Restaurant reputation system</p>
-          <h1 className="mt-4 text-[1.85rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-navy sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
-            Turn Every Dining Experience Into Better Reviews, Better Insights &amp; A Stronger Restaurant Reputation.
+    <section id="top" className="bg-mist pb-16 pt-8 sm:pb-20 lg:pb-24 lg:pt-12">
+      <div className="wrap grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+        <Reveal>
+          <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+            {["Built for restaurants", "QR-based", "Installable app", "Multi-location ready"].map((item) => (
+              <span key={item} className="rounded-full bg-white px-3 py-1.5 text-xs font-medium text-navy shadow-card">{item}</span>
+            ))}
+          </div>
+          <h1 className="display mx-auto mt-6 max-w-xl text-center text-[2.15rem] text-navy sm:text-5xl lg:mx-0 lg:text-left lg:text-[3.15rem]">
+            Turn Every Dining Experience Into <span className="text-glow">Better Reviews</span>, Better Insights &amp; A Stronger Restaurant Reputation.
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-center text-base leading-relaxed text-mute sm:text-[17px] lg:mx-0 lg:text-left">
             Collect guest feedback, grow genuine Google reviews, catch unhappy experiences earlier and understand exactly what diners think — with one reputation system built for restaurants.
           </p>
-          <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
             <Button onClick={() => { track(EVENTS.GET_RESTROSIGHTS, { source: "hero" }); document.getElementById("pricing")?.scrollIntoView() }}>
               Get Restrosights
             </Button>
-            <Button variant="secondary" onClick={() => openDemo("hero")}>
-              Book a Demo
-            </Button>
+            <Button variant="secondary" onClick={() => openDemo("hero")}>Book a Demo</Button>
           </div>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-navy">
-            {["Built for restaurants", "QR-based", "Installable app", "Multi-location ready"].map((item) => (
-              <li key={item} className="rounded-full bg-white/80 px-3 py-2 shadow-card">{item}</li>
-            ))}
-          </ul>
-        </Glow>
-
-        <div className="relative z-10 mx-auto mt-12 grid max-w-5xl items-center gap-4 lg:mt-16 lg:grid-cols-[260px_300px_280px] lg:justify-center lg:gap-5">
-          <div className="mockup-glow" aria-hidden="true" />
-          <div className="order-2 grid gap-4 lg:order-1">
-            <div className="rise">
-              <ReviewStand />
-            </div>
-            <div className="rise rounded-[24px] bg-white p-4 shadow-card">
-              <SampleBadge />
-              <p className="mt-3 text-4xl font-extrabold tracking-tight text-good">89%</p>
-              <p className="text-sm font-semibold text-navy">Positive guest sentiment</p>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2">
-            <PhoneMock />
-          </div>
-          <div className="order-3 grid gap-4">
-            <div className="rounded-[24px] bg-white p-4 shadow-card">
-              <div className="flex items-center justify-between gap-2">
-                <p className="text-sm font-extrabold text-navy">Whitefield</p>
-                <SampleBadge />
-              </div>
-              <p className="mt-2 text-xs font-semibold text-mute">Outlet selector</p>
-              <div className="mt-3">
-                <MiniStats />
-              </div>
-            </div>
-            <div className="rounded-[24px] bg-white p-4 shadow-card">
-              <p className="mb-3 text-sm font-extrabold text-navy">Recent feedback</p>
-              <FeedbackList compact />
-            </div>
-          </div>
-        </div>
-        <p className="relative z-10 mt-4 text-center text-xs font-semibold text-ink">Illustrative sample data on every card. Not a customer result.</p>
+        </Reveal>
+        <HeroStage />
       </div>
     </section>
   )
@@ -227,21 +208,30 @@ export function Hero() {
 
 export function Pain() {
   return (
-    <section id="pain" className="relative py-20 sm:py-28">
+    <section id="pain" className="bg-white py-20 sm:py-28">
       <div className="wrap">
-        <SectionHeading eyebrow="The gap" title="Great Food Does Not Automatically Create Great Reviews.">
-          A full dining room can still leave you with a thin Google profile, a surprise 1-star review, and no clear picture of why.
-        </SectionHeading>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {PAIN.map(([icon, title, copy]) => (
-            <article key={title} className="rounded-[24px] border border-line bg-white p-5 shadow-card">
-              <IconTile name={icon} />
-              <h3 className="mt-4 text-lg font-extrabold tracking-tight text-navy">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
-            </article>
+        <div className="grid items-end gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <Reveal>
+            <h2 className="display text-[2rem] text-navy sm:text-5xl">
+              Great Food Does Not Automatically <span className="text-glow">Create Great Reviews.</span>
+            </h2>
+          </Reveal>
+          <p className="text-base leading-relaxed text-mute sm:text-[17px]">
+            A full dining room can still leave you with a thin Google profile, a surprise 1-star review, and no clear picture of why.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {PAIN.map(([name, title, copy], index) => (
+            <Reveal key={title} delay={index * 60}>
+              <article className="soft-card h-full p-4 sm:p-5">
+                <PainVisual name={name} />
+                <h3 className="mt-4 text-lg font-medium tracking-[-0.02em] text-navy">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mute">{copy}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
-        <p className="mx-auto mt-10 max-w-3xl text-center text-lg font-semibold leading-relaxed text-navy">
+        <p className="mx-auto mt-10 max-w-3xl text-center text-lg font-medium leading-relaxed text-navy">
           Restrosights gives restaurants a system instead of leaving reputation to chance.
         </p>
       </div>
@@ -251,29 +241,39 @@ export function Pain() {
 
 export function How() {
   return (
-    <section id="how-it-works" className="relative scroll-mt-24 pb-20 sm:pb-28">
-      <div className="wrap">
-        <SectionHeading eyebrow="How it works" title="From the table to a clearer picture of your guests.">
-          Five quiet steps. Guests stay in the browser. You see what they meant.
-        </SectionHeading>
-        <ol className="mt-12 grid gap-4 md:grid-cols-5">
-          {STEPS.map(([num, icon, title, copy]) => (
-            <li key={num} className="rounded-[24px] border border-line p-4">
-              <div className="flex items-center justify-between">
-                <IconTile name={icon} />
-                <span className="text-sm font-extrabold text-royal">{num}</span>
-              </div>
-              <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
-            </li>
-          ))}
-        </ol>
-        <div className="journey-strip relative mt-8 rounded-[32px] px-4 py-8 sm:px-8">
-          <ol className="relative flex flex-wrap items-center justify-center gap-2">
+    <section id="how-it-works" className="scroll-mt-24 bg-white pb-20 sm:pb-28">
+      <div className="wrap grid items-center gap-12 lg:grid-cols-2">
+        <Reveal>
+          <div className="float-b mx-auto max-w-[320px]">
+            <GuestPhone />
+          </div>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="text-[15px] font-medium text-glowink">How it works</p>
+          <h2 className="display mt-2 text-[2rem] text-navy sm:text-5xl">
+            From the table to a <span className="text-glow">clearer picture</span> of your guests.
+          </h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-mute">Five quiet steps. Guests stay in the browser. You see what they meant.</p>
+          <ol className="mt-8 space-y-4">
+            {STEPS.map(([num, title, copy]) => (
+              <li key={num} className="flex gap-4">
+                <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#E7F3FE] text-sm font-medium text-glowink">{num}</span>
+                <div>
+                  <h3 className="font-medium text-navy">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-mute">{copy}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </div>
+      <div className="wrap mt-12">
+        <div className="soft-card px-4 py-6 sm:px-8">
+          <ol className="flex flex-wrap items-center justify-center gap-2">
             {FLOW.map((item, index) => (
               <li key={item} className="flex items-center gap-2">
-                <span className="rounded-full bg-white px-3 py-2 text-sm font-bold text-navy shadow-card">{item}</span>
-                {index < FLOW.length - 1 ? <span className="text-navy" aria-hidden="true">→</span> : null}
+                <span className="rounded-full bg-white px-3 py-2 text-sm font-medium text-navy shadow-card">{item}</span>
+                {index < FLOW.length - 1 ? <span className="text-glow" aria-hidden="true">→</span> : null}
               </li>
             ))}
           </ol>
@@ -285,19 +285,25 @@ export function How() {
 
 export function Stand() {
   return (
-    <section id="review-stand" className="relative scroll-mt-24 py-20 sm:py-28">
-      <div className="wrap relative z-10 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-[28px] bg-white p-6 shadow-float sm:p-8">
-          <SectionHeading eyebrow="Review Stand" title="A prompt where guests already pause.">
-            The physical QR stand sits on the table, at the billing counter, at reception or with takeaway. Guests scan it and stay in the browser. Nothing to install.
-          </SectionHeading>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-            {["On the table", "Billing counter", "Reception", "Takeaway"].map((place) => (
-              <li key={place} className="rounded-2xl bg-lavender px-4 py-3 text-sm font-bold text-navy">{place}</li>
-            ))}
-          </ul>
+    <section id="review-stand" className="scroll-mt-24 bg-white py-8 sm:py-12">
+      <div className="wrap">
+        <div className="blue-band grid items-center gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-2 lg:px-14">
+          <Reveal>
+            <p className="text-sm font-medium text-white/80">Review Stand</p>
+            <h2 className="display mt-3 text-[2rem] text-white sm:text-5xl">A prompt where guests already pause.</h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/90">
+              The physical QR stand sits on the table, at the billing counter, at reception or with takeaway. Guests scan it and stay in the browser. Nothing to install.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {["On the table", "Billing counter", "Reception", "Takeaway"].map((place) => (
+                <Check key={place} light>{place}</Check>
+              ))}
+            </ul>
+          </Reveal>
+          <div className="float-a">
+            <ReviewStand />
+          </div>
         </div>
-        <ReviewStand />
       </div>
     </section>
   )
@@ -305,15 +311,24 @@ export function Stand() {
 
 export function DashboardSection() {
   return (
-    <section id="dashboard" className="relative scroll-mt-24 py-20 sm:py-28">
-      <div className="wrap relative z-10">
-        <Glow>
-          <SectionHeading eyebrow="The app" title="Your restaurant reputation in your pocket.">
-            The Restrosights app is a progressive web app. Owners install it on supported phones and use it like an app: feedback, ratings, sentiment, outlet switching and notifications in one place.
-          </SectionHeading>
-        </Glow>
-        <div className="mx-auto mt-10 max-w-3xl">
-          <DashboardMock />
+    <section id="dashboard" className="scroll-mt-24 bg-white py-16 sm:py-24">
+      <div className="wrap">
+        <div className="soft-card grid items-center gap-10 p-5 sm:p-8 lg:grid-cols-2 lg:p-12">
+          <Reveal>
+            <DashboardPanel />
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="text-[15px] font-medium text-glowink">The app</p>
+            <h2 className="display mt-2 text-[2rem] text-navy sm:text-5xl">Your restaurant reputation in your pocket.</h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-mute">
+              The Restrosights app is a progressive web app. Owners install it on supported phones and use it like an app: feedback, ratings, sentiment, outlet switching and notifications in one place.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {["Overall rating and positive share", "Recent feedback, in the guest’s words", "Switch outlets without a second login"].map((item) => (
+                <Check key={item}>{item}</Check>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -322,37 +337,46 @@ export function DashboardSection() {
 
 export function Seo() {
   return (
-    <section id="reviews-seo" className="relative py-20 sm:py-28">
-      <div className="wrap">
-        <SectionHeading eyebrow="Reviews and local SEO" title="Reviews That Build Trust — And Support Local SEO.">
-          Build a steady flow of genuine customer reviews that can strengthen your restaurant&apos;s Google presence, local relevance and customer trust over time.
-        </SectionHeading>
-        <p className="mt-4 max-w-3xl text-base font-semibold text-royal">Build genuine reviews that support local trust and visibility.</p>
-        <ol className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-6">
-          {SEO_STEPS.map((step, index) => (
-            <li
-              key={step}
-              className={`flex min-h-[5.25rem] items-center gap-4 rounded-[20px] border border-line bg-white px-4 py-4 lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""} ${index === 4 ? "lg:col-start-4" : ""}`}
-            >
-              <span className="icon-tile h-11 w-11 rounded-xl text-sm font-extrabold">{index + 1}</span>
-              <p className="text-base font-semibold text-navy">{step}</p>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <article className="rounded-[24px] border border-line p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-mute">Thin review</p>
-            <p className="mt-3 text-2xl font-extrabold text-navy">“Good food.”</p>
-            <p className="mt-3 text-sm text-ink">Little for the next diner, and little local context.</p>
-          </article>
-          <article className="rounded-[24px] border border-[#d9f3e6] bg-[#f4fbf7] p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-good">Descriptive genuine review</p>
-            <p className="mt-3 text-lg font-bold leading-relaxed text-navy">“Loved the biryani and service. A great family restaurant in Whitefield with a nice ambience.”</p>
-            <p className="mt-3 text-sm text-ink">An example of the kind of review a real visit can produce. Not a result we are claiming.</p>
-          </article>
+    <section id="reviews-seo" className="bg-white py-16 sm:py-24">
+      <div className="wrap grid items-center gap-12 lg:grid-cols-2">
+        <Reveal>
+          <p className="text-[15px] font-medium text-glowink">Reviews and local SEO</p>
+          <h2 className="display mt-2 text-[2rem] text-navy sm:text-5xl">
+            Reviews That Build Trust — And <span className="text-glow">Support Local SEO.</span>
+          </h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-mute">
+            Build a steady flow of genuine customer reviews that can strengthen your restaurant’s Google presence, local relevance and customer trust over time.
+          </p>
+          <p className="mt-4 text-sm font-medium text-glowink">Build genuine reviews that support local trust and visibility.</p>
+          <ol className="mt-6 space-y-3">
+            {SEO_STEPS.map((step, index) => (
+              <li key={step} className="flex items-center gap-3 text-sm font-medium text-navy">
+                <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-[#E7F3FE] text-xs text-glowink">{index + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+        <div className="float-b">
+          <GoogleSharePhone />
         </div>
-        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-ink">
-          Genuine descriptive reviews can support local relevance, trust and Maps visibility over time. Restrosights does not promise a number-one ranking, a guaranteed SEO boost, or a script of forced keywords.
+      </div>
+      <div className="wrap mt-10 grid gap-4 md:grid-cols-2">
+        <article className="soft-card p-5">
+          <p className="text-xs font-medium text-mute">Thin review</p>
+          <p className="mt-3 text-2xl font-medium text-navy">“Good food.”</p>
+          <p className="mt-3 text-sm text-mute">Little for the next diner, and little local context.</p>
+        </article>
+        <article className="rounded-3xl bg-[#F3FBF7] p-5">
+          <p className="text-xs font-medium text-good">Descriptive genuine review</p>
+          <p className="mt-3 text-lg font-medium leading-relaxed text-navy">“Loved the biryani and service. A great family restaurant in Whitefield with a nice ambience.”</p>
+          <p className="mt-3 text-sm text-mute">An example of the kind of review a real visit can produce. Not a result we are claiming.</p>
+        </article>
+      </div>
+      <div className="wrap mt-6 grid items-center gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+        <GrowthChart />
+        <p className="text-sm leading-relaxed text-mute">
+          Genuine descriptive reviews can support local relevance, trust and Maps visibility over time. Restrosights does not promise a number-one ranking, a guaranteed SEO boost, or a script of forced keywords. The chart is an illustration, not a measured result.
         </p>
       </div>
     </section>
@@ -361,32 +385,34 @@ export function Seo() {
 
 export function Filtration() {
   return (
-    <section id="filtration" className="section-mist relative py-20 sm:py-28">
+    <section id="filtration" className="bg-white py-16 sm:py-24">
       <div className="wrap">
-        <SectionHeading eyebrow="Negative feedback filtration" title="Don't Discover Customer Problems From A 1-Star Review.">
-          Restrosights helps restaurants capture lower-rated guest feedback privately, so management can understand and address the issue earlier. Catch lower-rated guest feedback earlier.
-        </SectionHeading>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink">
+        <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <SectionHeading eyebrow="Negative feedback filtration" title={<><span>Don&apos;t Discover Customer Problems From A </span><span className="text-glow">1-Star Review.</span></>}>
+            Restrosights helps restaurants capture lower-rated guest feedback privately, so management can understand and address the issue earlier.
+          </SectionHeading>
+          <AlertCard className="float-c" />
+        </div>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-mute">
           Call it what it is: negative feedback filtration, private feedback capture, early complaint detection, guest experience recovery. It is not a way to block, hide or filter who is allowed to review. Guests still decide what they publish.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map(([icon, title, copy]) => (
-            <article key={title} className="rounded-[24px] bg-white p-5 shadow-card">
-              <IconTile name={icon} />
-              <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink">{copy}</p>
+          {CATEGORIES.map(([title, copy]) => (
+            <article key={title} className="soft-card p-5">
+              <h3 className="text-lg font-medium text-navy">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mute">{copy}</p>
             </article>
           ))}
         </div>
-        <ol className="mt-8 grid gap-3 md:grid-cols-5">
+        <ol className="mt-6 grid gap-3 md:grid-cols-5">
           {LOGIC.map((step, index) => (
-            <li key={step} className="rounded-[20px] bg-white p-4 text-sm font-semibold leading-relaxed text-navy shadow-card">
-              <span className="mb-2 block text-xs font-extrabold text-royal">0{index + 1}</span>
+            <li key={step} className="soft-card p-4 text-sm font-medium leading-relaxed text-navy">
+              <span className="mb-2 block text-xs text-glowink">0{index + 1}</span>
               {step}
             </li>
           ))}
         </ol>
-        <p className="mt-8 text-lg font-extrabold tracking-tight text-navy">Good experiences help grow your reputation. Bad experiences help you improve it.</p>
+        <p className="mt-8 text-lg font-medium tracking-[-0.02em] text-navy">Good experiences help grow your reputation. Bad experiences help you improve it.</p>
       </div>
     </section>
   )
@@ -394,16 +420,25 @@ export function Filtration() {
 
 export function Insights() {
   return (
-    <section id="insights" className="relative py-20 sm:py-28">
-      <Silk edges="both" />
-      <div className="wrap relative z-10">
-        <Glow>
-          <SectionHeading eyebrow="Monthly intelligence" title="Don't Just Collect Reviews. Understand Your Diners.">
-            See what diners love — and what needs attention. A premium monthly read, with the figures below marked as sample data.
-          </SectionHeading>
-        </Glow>
-        <div className="mx-auto mt-10 max-w-4xl">
-          <ReportMock />
+    <section id="insights" className="bg-white py-16 sm:py-24">
+      <div className="wrap">
+        <SectionHeading center eyebrow="Monthly intelligence" title={<><span>Don&apos;t Just Collect Reviews. </span><span className="text-glow">Understand Your Diners.</span></>}>
+          See what diners love — and what needs attention. A premium monthly read, with the figures below marked as sample data.
+        </SectionHeading>
+        <div className="soft-card mx-auto mt-10 max-w-4xl p-3 sm:p-5">
+          <div className="mb-4 grid gap-3 sm:grid-cols-3">
+            {[
+              ["427", "Guest responses in a sample month"],
+              ["4.6", "Average guest experience"],
+              ["89%", "Positive experiences"],
+            ].map(([value, label]) => (
+              <div key={label} className="rounded-2xl bg-white px-4 py-4 shadow-card">
+                <p className="text-3xl font-medium tracking-tight text-navy">{value}</p>
+                <p className="mt-1 text-sm text-mute">{label}</p>
+              </div>
+            ))}
+          </div>
+          <ReportCard />
         </div>
       </div>
     </section>
@@ -412,25 +447,17 @@ export function Insights() {
 
 export function Reputation() {
   return (
-    <section id="reputation" className="relative py-20 sm:py-28">
+    <section id="reputation" className="bg-white py-16 sm:py-24">
       <div className="wrap">
         <SectionHeading eyebrow="Reputation support" title="Help when a profile or a review needs a careful response.">
           Google Business Profile issues and reviews that look fake or spammy are part of the system. So is a clear line about what nobody honest can promise.
         </SectionHeading>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <article className="reputation-card">
-            <IconTile name="store" />
-            <h3 className="mt-4 text-xl font-extrabold text-navy">Google Business Profile support</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink">Guidance on suspension, reinstatement and verification. The work is professional support, not a switch that turns a profile back on.</p>
-          </article>
-          <article className="reputation-card">
-            <IconTile name="shield" />
-            <h3 className="mt-4 text-xl font-extrabold text-navy">Fake review assistance</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink">When a review appears fake, spammy or potentially in violation of Google&apos;s policies, the team can help you report it the right way.</p>
-          </article>
+          <GbpCard />
+          <FakeReviewCard />
         </div>
-        <div className="mt-4 rounded-[24px] bg-[#fff8ec] p-6">
-          <h3 className="text-base font-extrabold text-warn">What we will not claim</h3>
+        <div className="mt-4 rounded-3xl bg-[#FFF8EC] p-6">
+          <h3 className="text-base font-medium text-warn">What we will not claim</h3>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-navy">
             <li>Legitimate reviews cannot simply be removed.</li>
             <li>No legitimate provider should guarantee that a suspended profile will be restored.</li>
@@ -449,52 +476,34 @@ export function Brand() {
     setFilm(name)
   }
   return (
-    <section id="brand" className="relative py-20 sm:py-28">
+    <section id="brand" className="bg-white py-16 sm:py-24">
       <div className="wrap">
         <SectionHeading eyebrow="Brand services" title="An Instagram bio that is easy to trust. Two films about the restaurant.">
           Growth includes Instagram bio optimisation, a Brand Story video and a Location Highlight video. The frames below show the shape of the work. They are not client results.
         </SectionHeading>
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          <article className="rounded-[24px] border border-line p-5">
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="text-lg font-extrabold text-navy">Instagram bio</h3>
-              <span className="rounded-full bg-lavender px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Example, not a client</span>
-            </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl bg-star p-4">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-mute">Before</p>
-                <p className="mt-2 text-sm leading-relaxed text-navy">Best restaurant in town!!! DM for offers. Link in bio maybe.</p>
-              </div>
-              <div className="rounded-2xl bg-[#f4fbf7] p-4">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-good">After</p>
-                <p className="mt-2 text-sm leading-relaxed text-navy">Family dining in Whitefield. Biryani, weekday lunch, weekend dinner. Hours and the map, one link.</p>
-              </div>
-            </div>
-          </article>
-          <div className="grid gap-4 sm:grid-cols-2">
+        <div className="mt-10 grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
+          <InstagramCard />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {[
               ["Brand Story", "Who you are, told without a hard sell."],
               ["Location Highlight", "The room, the neighbourhood, the reason to visit."],
             ].map(([title, copy]) => (
-              <article key={title} className="flex flex-col rounded-[24px] border border-line p-5">
-                <div className="relative grid h-36 place-items-center rounded-2xl">
-                  <Silk edges="panel" />
-                  <button type="button" className="relative z-10 grid h-14 w-14 place-items-center rounded-full bg-white text-lg font-extrabold text-navy shadow-card" onClick={() => openFilm(title)} aria-label={`About the ${title} video`}>
-                    ▶
-                  </button>
-                </div>
-                <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
-                <p className="mt-1 text-sm text-ink">{copy}</p>
-                <p className="mt-2 text-xs font-semibold text-mute">Deliverable preview. Not a client film. No autoplay.</p>
+              <article key={title} className="soft-card flex flex-col p-5">
+                <button type="button" className="grid h-14 w-14 place-items-center rounded-full bg-white text-glow shadow-card" onClick={() => openFilm(title)} aria-label={`About the ${title} video`}>
+                  ▶
+                </button>
+                <h3 className="mt-4 text-lg font-medium text-navy">{title}</h3>
+                <p className="mt-1 text-sm text-mute">{copy}</p>
+                <p className="mt-2 text-xs text-mute">Deliverable preview. Not a client film. No autoplay.</p>
               </article>
             ))}
           </div>
         </div>
         {film ? (
-          <div className="fixed inset-0 z-50 grid place-items-center bg-[#243044]/45 p-4" onMouseDown={() => setFilm(null)}>
-            <div role="dialog" aria-modal="true" aria-labelledby="film-title" className="w-full max-w-md rounded-[28px] bg-white p-6 shadow-float" onMouseDown={(event) => event.stopPropagation()}>
-              <h3 id="film-title" className="text-xl font-extrabold text-navy">{film}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink">These films are produced for your restaurant after you join. This preview does not play a sample client video, and it does not play sound.</p>
+          <div className="fixed inset-0 z-50 grid place-items-center bg-[#102329]/45 p-4" onMouseDown={() => setFilm(null)}>
+            <div role="dialog" aria-modal="true" aria-labelledby="film-title" className="w-full max-w-md rounded-3xl bg-white p-6 shadow-float" onMouseDown={(event) => event.stopPropagation()}>
+              <h3 id="film-title" className="text-xl font-medium text-navy">{film}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-mute">These films are produced for your restaurant after you join. This preview does not play a sample client video, and it does not play sound.</p>
               <Button className="mt-5" onClick={() => setFilm(null)} arrow={false}>Close</Button>
             </div>
           </div>
@@ -506,33 +515,12 @@ export function Brand() {
 
 export function Multi() {
   return (
-    <section id="multi-location" className="section-mist relative py-20 sm:py-28">
+    <section id="multi-location" className="bg-white py-16 sm:py-24">
       <div className="wrap grid items-center gap-10 lg:grid-cols-2">
-        <SectionHeading eyebrow="Multi-location" title="Know which restaurant location needs attention.">
+        <SectionHeading eyebrow="Multi-location" title={<>Know which restaurant location <span className="text-glow">needs attention.</span></>}>
           Each outlet has its own QR and review flow. You still get one central view: outlet-level feedback, a comparison, and a group read of the guest experience.
         </SectionHeading>
-        <div className="rounded-[28px] bg-white p-5 shadow-card">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-extrabold text-navy">Central view</h3>
-            <SampleBadge />
-          </div>
-          <ul className="mt-4 space-y-3">
-            {[
-              ["Whitefield", "4.7", "Steady"],
-              ["Indiranagar", "4.6", "Steady"],
-              ["Koramangala", "4.2", "Waiting time"],
-            ].map(([name, score, note]) => (
-              <li key={name} className="flex items-center justify-between rounded-2xl bg-lavender/70 px-4 py-3">
-                <div>
-                  <p className="font-extrabold text-navy">{name}</p>
-                  <p className={`text-xs font-semibold ${note === "Steady" ? "text-good" : "text-warn"}`}>{note}</p>
-                </div>
-                <p className={`text-2xl font-extrabold ${note === "Steady" ? "text-good" : "text-warn"}`}>{score}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3 text-xs text-mute">Illustrative sample data, not a customer result.</p>
-        </div>
+        <OutletCompare />
       </div>
     </section>
   )
@@ -540,33 +528,28 @@ export function Multi() {
 
 export function Value() {
   return (
-    <section id="value" className="relative py-20 sm:py-28">
+    <section id="value" className="bg-white py-16 sm:py-24">
       <div className="wrap">
-        <SectionHeading eyebrow="The offer" title="One Restaurant Reputation System Instead Of Five Different Services.">
+        <SectionHeading eyebrow="The offer" title={<>One Restaurant Reputation System <span className="text-glow">Instead Of Five</span> Different Services.</>}>
           Most restaurants assemble this from separate vendors. Restrosights packages the work as one system.
         </SectionHeading>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <article className="rounded-[24px] border border-line p-6">
-            <h3 className="text-lg font-extrabold text-navy">Fragmented</h3>
+          <article className="rounded-3xl border border-line bg-white p-6">
+            <h3 className="text-lg font-medium text-navy">Fragmented</h3>
             <ul className="mt-4 space-y-3">
               {FRAGMENTED.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm font-semibold text-ink">
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-lavender/60 text-mute">–</span>
+                <li key={item} className="flex items-center gap-3 text-sm text-mute">
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-[#F8F7F7] text-mute">–</span>
                   {item}
                 </li>
               ))}
             </ul>
           </article>
-          <article className="flat-card rounded-[24px] p-6">
-            <h3 className="text-lg font-extrabold text-navy">Restrosights</h3>
+          <article className="soft-card p-6">
+            <h3 className="text-lg font-medium text-navy">Restrosights</h3>
             <ul className="mt-4 space-y-3">
               {INCLUDED.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm font-semibold text-navy">
-                  <span className="grid h-7 w-7 flex-none place-items-center rounded-lg bg-sky text-navy">
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7.5" strokeLinecap="round" /></svg>
-                  </span>
-                  {item}
-                </li>
+                <Check key={item}>{item}</Check>
               ))}
             </ul>
           </article>
@@ -581,51 +564,35 @@ function PlanCalculator() {
   const [outlets, setOutlets] = useState("1")
   const count = Math.min(50, Math.max(1, Number.parseInt(outlets, 10) || 1))
   const group = count > 1
-
   return (
     <form
-      className="mx-auto mt-10 max-w-xl rounded-[28px] border border-line bg-white p-6 text-left shadow-card"
+      className="soft-card mx-auto mt-10 max-w-xl p-6 text-left"
       onSubmit={(event) => {
         event.preventDefault()
         openDemo("plan_calculator", group ? "Restaurant Group" : "Growth")
       }}
     >
-      <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-royal">Plan calculator</p>
-      <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy">Which published plan fits?</h3>
-      <label className="mt-4 block text-sm font-semibold text-navy" htmlFor="outlet-count">
-        Outlets
-      </label>
-      <input
-        id="outlet-count"
-        className="field mt-1.5 max-w-[8rem]"
-        type="number"
-        min={1}
-        max={50}
-        inputMode="numeric"
-        value={outlets}
-        onChange={(event) => setOutlets(event.target.value)}
-      />
+      <p className="text-[15px] font-medium text-glowink">Plan calculator</p>
+      <h3 className="mt-2 text-xl font-medium tracking-[-0.02em] text-navy">Which published plan fits?</h3>
+      <label className="mt-4 block text-sm font-medium text-navy" htmlFor="outlet-count">Outlets</label>
+      <input id="outlet-count" className="field mt-1.5 max-w-[8rem]" type="number" min={1} max={50} inputMode="numeric" value={outlets} onChange={(event) => setOutlets(event.target.value)} />
       {group ? (
-        <p className="mt-4 text-sm leading-relaxed text-ink">
+        <p className="mt-4 text-sm leading-relaxed text-mute">
           {count} outlets are Restaurant Group. That price is quoted. Starter is one location at ₹2,499 a month. Growth is ₹4,999 a month for one restaurant.
         </p>
       ) : (
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl bg-lavender/70 p-4">
-            <p className="text-sm font-extrabold text-navy">Starter</p>
-            <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹2,499 <span className="text-sm font-semibold text-mute">/ month</span></p>
-            <p className="mt-1 text-sm text-ink">1 location.</p>
+          <div className="rounded-2xl bg-white p-4 shadow-card">
+            <p className="text-sm font-medium text-navy">Starter</p>
+            <p className="mt-1 text-2xl font-medium tracking-tight text-navy">₹2,499 <span className="text-sm text-mute">/ month</span></p>
           </div>
-          <div className="rounded-2xl bg-lavender/70 p-4">
-            <p className="text-sm font-extrabold text-navy">Growth</p>
-            <p className="mt-1 text-2xl font-extrabold tracking-tight text-navy">₹4,999 <span className="text-sm font-semibold text-mute">/ month</span></p>
-            <p className="mt-1 text-sm text-ink">Full system, one restaurant.</p>
+          <div className="rounded-2xl bg-white p-4 shadow-card">
+            <p className="text-sm font-medium text-navy">Growth</p>
+            <p className="mt-1 text-2xl font-medium tracking-tight text-navy">₹4,999 <span className="text-sm text-mute">/ month</span></p>
           </div>
         </div>
       )}
-      <Button className="mt-4" type="submit">
-        {group ? "Talk To Our Team" : "Book a Demo"}
-      </Button>
+      <Button className="mt-4" type="submit">{group ? "Talk To Our Team" : "Book a Demo"}</Button>
     </form>
   )
 }
@@ -635,39 +602,50 @@ export function Pricing() {
   const ref = useRef(null)
   useOnceInView(ref, EVENTS.PRICING_VIEW, { section: "pricing" })
   return (
-    <section id="pricing" ref={ref} className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="pricing" ref={ref} className="scroll-mt-24 bg-white py-16 sm:py-24">
       <div className="wrap">
-        <SectionHeading center eyebrow="Pricing" title="Three ways to start. One system, not five invoices.">
-          ₹4,999 is the cost of the reputation system for a restaurant that wants the full monthly practice. It is not a software seat stacked on top of a consultant, an editor and a reporting tool.
-        </SectionHeading>
+        <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <p className="text-[15px] font-medium text-glowink">Pricing</p>
+            <h2 className="display mt-2 text-[2rem] text-navy sm:text-5xl">
+              Choose a plan that fits <span className="text-glow">your restaurant.</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-mute">
+              ₹4,999 is the cost of the reputation system for a restaurant that wants the full monthly practice. It is not a software seat stacked on top of a consultant, an editor and a reporting tool.
+            </p>
+          </div>
+          <div className="float-c mx-auto hidden w-full max-w-[280px] rotate-6 lg:block">
+            <ReviewStand />
+          </div>
+        </div>
         <PlanCalculator />
         <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-3">
           {PLANS.map((plan) => (
-            <article key={plan.id} className={`flex flex-col rounded-[28px] p-6 ${plan.featured ? "growth-card lg:-mt-3 lg:mb-3" : "border border-line bg-white"}`}>
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-lg font-extrabold text-navy">{plan.name}</h3>
-                {plan.featured ? <span className="rounded-full bg-sky px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy">Most popular</span> : null}
-              </div>
-              <p className="mt-4 text-4xl font-extrabold tracking-tight text-navy">
-                {plan.price} <span className="text-base font-semibold text-mute">{plan.cadence}</span>
+            <article key={plan.id} className={`relative flex flex-col rounded-3xl bg-[#F8F7F7] p-6 ${plan.featured ? "lg:-mt-3 lg:mb-3" : ""}`}>
+              {plan.featured ? (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#C2A463] px-3 py-1 text-[11px] font-medium text-navy">Popular</span>
+              ) : null}
+              <h3 className="text-lg font-medium text-navy">{plan.name}</h3>
+              <p className="mt-1 text-sm text-mute">{plan.who}</p>
+              <p className="mt-5 text-4xl font-medium tracking-tight text-navy">
+                {plan.price} <span className="text-base font-normal text-mute">{plan.cadence}</span>
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-ink">{plan.who}</p>
-              {plan.note ? <p className="mt-3 text-sm font-semibold leading-relaxed text-navy">{plan.note}</p> : null}
-              <ul className="mt-5 flex-1 space-y-2.5">
+              <Button className="mt-5 w-full" variant={plan.variant} onClick={() => openDemo(`pricing_${plan.id}`, plan.name)}>
+                {plan.cta}
+              </Button>
+              {plan.note ? <p className="mt-4 text-sm font-medium leading-relaxed text-navy">{plan.note}</p> : null}
+              <ul className="mt-5 space-y-2.5">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm font-semibold text-navy">
-                    <span className="mt-0.5 text-royal" aria-hidden="true">✓</span>
+                  <li key={feature} className="flex items-start gap-2 text-sm text-navy">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-glow" />
                     {feature}
                   </li>
                 ))}
               </ul>
-              <Button className="mt-6 w-full" onClick={() => openDemo(`pricing_${plan.id}`, plan.name)}>
-                {plan.cta}
-              </Button>
             </article>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-mute">Prices in INR, billed monthly. Verified results from restaurants are in the next section — we do not invent them here.</p>
+        <p className="mt-6 text-center text-sm text-mute">Prices in INR, billed monthly. Verified results from restaurants stay in the next section — we do not invent them here.</p>
       </div>
     </section>
   )
@@ -675,70 +653,83 @@ export function Pricing() {
 
 export function Proof() {
   return (
-    <section id="proof" className="relative pb-20 sm:pb-28">
-      <div className="wrap">
-        <SectionHeading eyebrow="Proof" title="Shown when a restaurant has agreed to share it.">
-          We will not invent testimonials, logos, review counts or before-and-after results. These spaces stay empty until the material is real.
-        </SectionHeading>
-        <div className="mt-8 flex flex-wrap gap-3">
+    <section id="proof" className="bg-white pb-8 sm:pb-12">
+      <div className="wrap text-center">
+        <p className="text-sm text-mute">Shown when a restaurant has agreed to share it</p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           {["[Restaurant logo]", "[Restaurant logo]", "[Restaurant logo]", "[Restaurant logo]"].map((slot, index) => (
-            <div key={`${slot}-${index}`} className="grid h-16 min-w-36 place-items-center rounded-2xl border border-dashed border-lavender px-4 text-xs font-semibold text-mute">
+            <div key={`${slot}-${index}`} className="grid h-14 min-w-36 place-items-center rounded-2xl border border-dashed border-line px-4 text-xs text-mute">
               {slot}
             </div>
           ))}
         </div>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PROOF.map((slot, index) => (
-            <div key={`${slot}-${index}`} className="flex min-h-40 flex-col justify-between rounded-[24px] border border-dashed border-lavender bg-star p-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-royal">Placeholder</p>
-              <p className="text-sm font-semibold leading-relaxed text-navy">{slot}</p>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="wrap mt-16 max-w-3xl text-center">
+        <p className="text-5xl font-medium text-glow" aria-hidden="true">“</p>
+        <p className="mt-2 text-2xl font-medium leading-snug tracking-[-0.03em] text-navy sm:text-[1.7rem]">
+          [Insert verified restaurant testimonial]
+        </p>
+        <p className="mt-4 text-sm text-mute">We will not invent testimonials, logos, review counts or before-and-after results.</p>
+      </div>
+      <div className="wrap mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {PROOF.map((slot, index) => (
+          <div key={`${slot}-${index}`} className="flex min-h-36 flex-col justify-between rounded-3xl border border-dashed border-line bg-[#F8F7F7] p-5 text-left">
+            <p className="text-[11px] font-medium text-glowink">Placeholder</p>
+            <p className="text-sm font-medium leading-relaxed text-navy">{slot}</p>
+          </div>
+        ))}
       </div>
     </section>
   )
 }
 
 export function Faq() {
-  const [open, setOpen] = useState(() => new Set([0]))
+  const [open, setOpen] = useState(0)
+  const { openDemo } = useLead()
   function toggle(index) {
-    setOpen((current) => {
-      const next = new Set(current)
-      if (next.has(index)) next.delete(index)
-      else {
-        next.add(index)
-        track(EVENTS.FAQ_OPEN, { question: FAQS[index][0] })
-      }
-      return next
-    })
+    setOpen((current) => (current === index ? -1 : index))
+    if (open !== index) track(EVENTS.FAQ_OPEN, { question: FAQS[index][0] })
   }
   return (
-    <section id="faq" className="relative scroll-mt-24 py-20 sm:py-28">
-      <div className="wrap max-w-3xl">
-        <SectionHeading eyebrow="FAQ" title="Frequently asked questions">
-          Straight answers on the app, rankings, reviews and what Restrosights will not promise.
-        </SectionHeading>
-        <div className="mt-8 divide-y divide-line rounded-[28px] border border-line">
+    <section id="faq" className="scroll-mt-24 bg-white py-16 sm:py-24">
+      <div className="wrap grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+        <div>
+          <p className="text-[15px] font-medium text-glowink">FAQs</p>
+          <h2 className="display mt-2 text-[2rem] text-navy sm:text-5xl">
+            Frequently asked <span className="text-glow">questions.</span>
+          </h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-mute">
+            Straight answers on the app, rankings, reviews and what Restrosights will not promise.
+          </p>
+          <div className="soft-card dot-grid mt-8 p-6 text-center">
+            <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white text-2xl text-glow shadow-card">?</div>
+            <p className="mt-4 text-lg font-medium text-navy">Still deciding?</p>
+            <p className="mt-2 text-sm leading-relaxed text-mute">The team can walk through the system for your restaurant.</p>
+            <div className="mt-4 flex flex-col gap-2">
+              <Button onClick={() => openDemo("faq_support")}>Book a Demo</Button>
+              <WhatsAppLink source="faq" className="btn btn-secondary">WhatsApp Us</WhatsAppLink>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-3">
           {FAQS.map(([question, answer], index) => {
-            const expanded = open.has(index)
+            const expanded = open === index
             const panelId = `faq-panel-${index}`
             return (
-              <div key={question}>
+              <div key={question} className="rounded-2xl bg-[#F8F7F7]">
                 <button
                   type="button"
-                  className="flex min-h-14 w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  className="flex min-h-14 w-full items-center gap-4 px-4 py-4 text-left"
                   aria-expanded={expanded}
                   aria-controls={panelId}
                   onClick={() => toggle(index)}
                 >
-                  <span className="text-base font-extrabold text-navy">{question}</span>
-                  <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-lavender text-lg text-navy" aria-hidden="true">{expanded ? "–" : "+"}</span>
+                  <span className="w-8 flex-none text-sm font-medium text-mute">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="flex-1 text-[15px] font-medium text-navy">{question}</span>
+                  <span className="text-xl text-navy" aria-hidden="true">{expanded ? "–" : "+"}</span>
                 </button>
                 {expanded ? (
-                  <div id={panelId} className="px-5 pb-5 text-sm leading-relaxed text-ink">
-                    {answer}
-                  </div>
+                  <div id={panelId} className="px-4 pb-4 pl-16 text-sm leading-relaxed text-mute">{answer}</div>
                 ) : null}
               </div>
             )
@@ -752,30 +743,32 @@ export function Faq() {
 export function FinalCta() {
   const { openDemo } = useLead()
   return (
-    <section id="book" className="relative py-20 sm:py-28">
-      <Silk edges="both" />
-      <div className="wrap relative z-10">
-        <Glow className="mx-auto max-w-3xl text-center">
-          <h2 className="text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.035em] text-navy sm:text-4xl lg:text-5xl">
-            Your Restaurant Serves Hundreds Of Customers. Restrosights Helps You Learn From Every One Of Them.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink sm:text-lg">
-            More genuine reviews. Faster feedback. Better restaurant experiences. Stronger online reputation.
-          </p>
-          <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <Button onClick={() => { track(EVENTS.GET_RESTROSIGHTS, { source: "final" }); document.getElementById("demo-form")?.scrollIntoView(); document.getElementById("demo-form-name")?.focus() }}>
-              Get Restrosights
-            </Button>
-            <Button variant="secondary" onClick={() => openDemo("final")}>
-              Book a Demo
-            </Button>
-            <WhatsAppLink source="final" className="btn btn-secondary">
-              WhatsApp Us
-            </WhatsAppLink>
+    <section id="book" className="bg-white py-8 pb-20 sm:py-12 sm:pb-28">
+      <div className="wrap">
+        <div className="blue-band px-6 py-12 sm:px-12 sm:py-16">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium text-white/80">Get Restrosights</p>
+            <h2 className="display mt-3 text-[2rem] text-white sm:text-5xl">
+              Your Restaurant Serves Hundreds Of Customers. Restrosights Helps You Learn From Every One Of Them.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+              More genuine reviews. Faster feedback. Better restaurant experiences. Stronger online reputation.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button variant="secondary" onClick={() => { track(EVENTS.GET_RESTROSIGHTS, { source: "final" }); document.getElementById("demo-form")?.scrollIntoView(); document.getElementById("demo-form-name")?.focus() }}>
+                Get Restrosights
+              </Button>
+              <button type="button" className="btn border border-white/40 bg-white/15 text-white" onClick={() => openDemo("final")}>
+                Book a Demo
+              </button>
+              <WhatsAppLink source="final" className="btn border border-white/40 bg-transparent text-white">
+                WhatsApp Us
+              </WhatsAppLink>
+            </div>
+            <p className="mt-4 text-sm text-white/85">No complicated setup · Built for restaurants · Our team helps you get started.</p>
           </div>
-          <p className="mt-4 text-sm font-semibold text-navy">No complicated setup · Built for restaurants · Our team helps you get started.</p>
-        </Glow>
-        <div className="mx-auto mt-10 max-w-2xl">
+        </div>
+        <div className="mx-auto -mt-8 max-w-2xl">
           <LeadForm idPrefix="demo-form" source="final_inline" />
         </div>
       </div>
