@@ -1,0 +1,12 @@
+{
+  "name": "Restrosights",
+  "short_name": "Restrosights",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#D2D8FD",
+  "background_color": "#F7F7FE",
+  "display": "standalone",
+  "start_url": "./"
+}
